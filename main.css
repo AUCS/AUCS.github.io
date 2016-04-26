@@ -58,7 +58,6 @@ body {
   padding: 30px;
 }
 
-
 /*
  * Header
  */
@@ -160,4 +159,11 @@ body {
   .cover-container {
     width: 700px;
   }
+}
+
+
+.form-wrapper {
+  max-width: 430px;
+  padding: 15px;
+  margin: 0 auto;
 }
