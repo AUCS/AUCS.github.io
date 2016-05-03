@@ -108,12 +108,11 @@
             data: formData,
             success: function( data ) {
               $("#form_api_response").html(data); 
-              $('#myModal').modal('show');
-              alert('Submitted');
+              $('#response_modal').modal('show');
             },
             error: function( xhr, err ) {
-              $('#myModal').modal('show');
-              alert('Error');     
+              $("#form_api_response").html(xhr.responseJSON);
+              $('#response_modal').modal('show');
             }
         });    
         return false;
