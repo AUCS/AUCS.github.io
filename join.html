@@ -74,23 +74,45 @@
       </div>
     </div>
 
+
+    <!-- Modal -->
+    <div class="modal fade" id="response_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p id="form_api_response"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
     <!-- Bootstrap core JavaScript -->
     <!-- ================================================== --> 
     <!-- Placed at the end of the document so the pages load faster --> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
     <script>
-      
+      $('#response_modal').on('hide.bs.modal', function (e) {
+        // redirect home
+      })
       $("#member").submit(function () {
         var formData = $(this).serialize();
         $.ajax({
             url: 'http://aucsmembershiphandler.azurewebsites.net/api/register',
             type: 'POST',
             data: formData,
-            success : function( data ) {
+            success: function( data ) {
+              $("#form_api_response").html(data); 
+              $('#myModal').modal('show');
               alert('Submitted');
             },
-            error   : function( xhr, err ) {
+            error: function( xhr, err ) {
+              $('#myModal').modal('show');
               alert('Error');     
             }
         });    
