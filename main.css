@@ -167,3 +167,13 @@ body {
   padding: 15px;
   margin: 0 auto;
 }
+
+/*
+ * Modal
+ */
+
+.modal-body {
+  color: #333;
+  text-align: center;
+  text-shadow: 0 0 0 rgba(0,0,0,0);
+}
