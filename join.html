@@ -98,7 +98,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
     <script>
       $('#response_modal').on('hide.bs.modal', function (e) {
-        // redirect home
+        window.location.replace("index.html");
       })
       $("#member").submit(function () {
         var formData = $(this).serialize();
