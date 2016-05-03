@@ -38,27 +38,27 @@
           <div class="spacer"></div>
           
           <div class="inner cover form-wrapper">
-            <form>
+            <form id="member">
               <h2>Become a Member</h2>
               <div class="form-group">
-                <label for="inputName" class="sr-only">Name</label>
-                <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                <label for="Name" class="sr-only">Name</label>
+                <input type="text" id="Name" name="name" class="form-control" placeholder="Name" required autofocus>
               </div>
               <div class="form-group">
-                <label for="inputEmail" class="sr-only">Email Address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email Address" required>
+                <label for="Email" class="sr-only">Email Address</label>
+                <input type="email" id="Email" name="email" class="form-control" placeholder="Email Address" required>
               </div>            
               <div class="form-group">
                 <div class="checkbox">
                   <label data-toggle="collapse" data-target="#studentId">
-                    <input type="checkbox" id="inputIsStudent" value="Yes">Adelaide University Student
+                    <input type="checkbox" id="IsStudent" value="Yes">Adelaide University Student
                   </label>
                 </div>
               </div>
               <div class="collapse" id="studentId">
                 <div class="form-group">
-                  <label for="inputStudentId" class="sr-only">Student Id</label>
-                  <input type="string" id="inputStudentId" class="form-control" placeholder="a123456">
+                  <label for="StudentId" class="sr-only">Student Id</label>
+                  <input type="string" id="StudentId" name="studentId" class="form-control" placeholder="a123456">
                 </div>
               </div>
               <button type="submit" class="btn btn-block btn-large btn-primary">Join</button>
@@ -79,5 +79,24 @@
     <!-- Placed at the end of the document so the pages load faster --> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
+    <script>
+      
+      $("#member").submit(function () {
+        var formData = $(this).serialize();
+        $.ajax({
+            url: 'http://aucsmembershiphandler.azurewebsites.net/api/register',
+            type: 'POST',
+            data: formData,
+            success : function( data ) {
+              alert('Submitted');
+            },
+            error   : function( xhr, err ) {
+              alert('Error');     
+            }
+        });    
+        return false;
+      });
+      
+    </script>
   </body>
 </html>
