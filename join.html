@@ -61,7 +61,10 @@
                   <input type="string" id="StudentId" name="studentId" class="form-control" placeholder="a123456">
                 </div>
               </div>
-              <button type="submit" class="btn btn-block btn-large btn-primary">Join</button>
+              <button type="submit" id="join_button" class="btn btn-block btn-large btn-primary">
+                <span id="loading_spinner" class="glyphicon glyphicon-refresh-animate"></span>
+                Join
+              </button>
             </form>
           </div>
 
@@ -102,6 +105,8 @@
         window.location.replace("index.html");
       })
       $("#member").submit(function () {
+        $("#loading_spinner").addClass("glyphicon-refresh");
+        $("#join_button").html("Loading");
         var formData = $(this).serialize();
         $.ajax({
             url: 'http://aucsmembershiphandler.azurewebsites.net/api/register',
