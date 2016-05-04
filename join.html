@@ -61,9 +61,9 @@
                   <input type="string" id="StudentId" name="studentId" class="form-control" placeholder="a123456">
                 </div>
               </div>
-              <button type="submit" id="join_button" class="btn btn-block btn-large btn-primary">
-                <span id="loading_spinner" class="glyphicon glyphicon-refresh-animate"></span>
-                Join
+              <button type="submit" class="btn btn-block btn-large btn-primary">
+                <span id="loading_spinner" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                <span id="join_button_text">Join</span>
               </button>
             </form>
           </div>
@@ -101,12 +101,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
     <script>
+      $("#loading_spinner").hide();
       $('#response_modal').on('hide.bs.modal', function (e) {
         window.location.replace("index.html");
       })
       $("#member").submit(function () {
-        $("#loading_spinner").addClass("glyphicon-refresh");
-        $("#join_button").html("Loading");
+        $("#loading_spinner").show();
+        $("#join_button_text").html("Loading");
         var formData = $(this).serialize();
         $.ajax({
             url: 'http://aucsmembershiphandler.azurewebsites.net/api/register',
