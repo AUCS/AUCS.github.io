@@ -110,7 +110,7 @@
         $("#join_button_text").html("Loading");
         var formData = $(this).serialize();
         $.ajax({
-            url: 'https://aucsmembershiphandler.azurewebsites.net/api/register',
+            url: 'http://aucsmembershiphandler.azurewebsites.net/api/register',
             type: 'POST',
             data: formData,
             success: function( data ) {
