@@ -158,15 +158,6 @@
       function check_login_session() {
         document.getElementById("field2").value = document.getElementById("field1").value;
       }
-      FB.Event.subscribe('auth.authResponseChange', function(response) {
-        if (response.status === 'connected') {
-          //your code
-        } else if (response.status === 'not_authorized') {
-          //your code
-        } else {
-          //your code
-        }
-      });
     </script>
   </body>
 </html>
