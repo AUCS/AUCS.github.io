@@ -48,7 +48,7 @@
           <div class="inner cover form-wrapper">
             <form id="member">
               <h2>Become a Member</h2>
-              <div class="fb-login-button" data-size="xlarge" data-auto-logout-link="true" onlogin="onlogin()"></div>
+              <div class="fb-login-button" data-size="xlarge" data-auto-logout-link="true" onlogin="check_login_session()"></div>
           </div>
 
           <div class="mastfoot">
@@ -84,7 +84,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
     <script>
-      function onlogin() {
+      function check_login_session() {
         document.getElementById("field2").value = document.getElementById("field1").value;
       }
       FB.Event.subscribe('auth.authResponseChange', function(response) {
