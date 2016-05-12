@@ -90,7 +90,7 @@
       // Here we run a very simple test of the Graph API after login is
       // successful.  See statusChangeCallback() for when this call is made.
       function testAPI(accessToken) {
-        var url = 'http://aucsmembershiphandler.azurewebsites.net/api/login/' + accessToken;
+        var url = 'http://aucsmembershiphandler.azurewebsites.net/api/Login/' + accessToken;
         $.ajax({
             url: url,
             type: 'GET',
