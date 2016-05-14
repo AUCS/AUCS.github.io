@@ -95,8 +95,8 @@
             url: url,
             type: 'GET',
             headers: {
-              "fb_token": accessToken
-            },            
+              "Authorization": accessToken
+            },
             success: function( data ) {
               alert(data);
             },
