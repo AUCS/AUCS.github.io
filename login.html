@@ -104,6 +104,9 @@
               } else if (data === "not_logged_in_facebook") {
                 $("#form_api_response").html("Something didn't work with the facebook login. Try refreshing the page.");
                 $('#response_modal').modal('show');
+              } else if (data === "not_in_fb_group") {
+                $("#form_api_response").html("You're not in the AUCS facebook group. Go and join there first! https://www.facebook.com/groups/aucs.club/.");
+                $('#response_modal').modal('show');
               } else if (data === "current") {
                 window.location.replace("current.html");
               }
