@@ -90,7 +90,7 @@
       // Here we run a very simple test of the Graph API after login is
       // successful.  See statusChangeCallback() for when this call is made.
       function testAPI(accessToken) {
-        var url = 'http://localhost:49863/api/Login/';
+        var url = 'http://aucsmembershiphandler.azurewebsites.net/api/Login/';
         $.ajax({
             url: url,
             type: 'POST',
@@ -98,14 +98,24 @@
               "Token": accessToken
             },
             success: function( data ) {
-              alert(data);
+              if (data === "not_enough_students") {
+                $("#form_api_response").html("Unfortunately there are too many non Adelaide University Students that are currently members of the AUCS. An account has been created for you but will not be activated unless you add and confirm a Student Id.");
+                $('#response_modal').modal('show');
+              } else if (data === "not_logged_in_facebook") {
+                $("#form_api_response").html("Something didn't work with the facebook login. Try refreshing the page.");
+                $('#response_modal').modal('show');
+              } else if (data === "current") {
+                window.location.replace("current.html");
+              }
             },
             error: function( xhr, err ) {
               if (xhr.responseJSON != null) {
-                alert(xhr.responseJSON.Message);
+                $("#form_api_response").html(xhr.responseJSON.Message);
+                $('#response_modal').modal('show');
               }
               else {
-                alert(err);
+                $("#form_api_response").html(err);
+                $('#response_modal').modal('show');
               }
             }
         });
