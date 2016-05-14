@@ -99,7 +99,7 @@
             },
             error: function( xhr, err ) {
               if (xhr.responseJSON != null) {
-                alert(xhr.responseJSON);
+                alert(xhr.responseJSON.Message);
               }
               else {
                 alert(err);
