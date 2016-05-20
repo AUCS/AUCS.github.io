@@ -30,7 +30,7 @@
         // Full docs on the response object can be found in the documentation
         // for FB.getLoginStatus().
         if (response.status === 'connected') {
-          var url = 'http://aucsmembershiphandler.azurewebsites.net/api/Current/';
+          var url = 'http://localhost:49863/api/Current/';
           $.ajax({
             url: url,
             type: 'POST',
