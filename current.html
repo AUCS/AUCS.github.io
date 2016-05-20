@@ -38,6 +38,7 @@
               "Token": response.authResponse.accessToken
             },
             success: function( data ) {
+                $('#results').show();
                 $("#name").html(data.Name);
                 $("#student_id").html(data.StudentId);
                 $("#email_address").html(data.EmailAddress);
@@ -97,6 +98,7 @@
 
       // Load the SDK asynchronously
       (function(d, s, id) {
+        $('#results').hide();
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
@@ -124,8 +126,11 @@
           
           <div class="inner cover form-wrapper">
             <h2>Become a Member</h2>
-            <div class="panel panel-default">
+            <div id="loading_spinner" class="panel panel-default">
               <div class="panel-body">
+                <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+              </div>
+              <div id="results" class="panel-body">
                 <span id="loading_spinner" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
                 <p>Your name is: <span id="name"></span></p>
                 <p>Your student id is: <span id="student_id"></span></p>
