@@ -37,15 +37,13 @@
           // The person is logged into Facebook, but not your app.
           $('#facebook_button').show();
           $('#loading_spinner').hide();
-          document.getElementById('status').innerHTML = 'Please log ' +
-            'into this app.';
+          $('#status').html("Please log into this app.");
         } else {
           // The person is not logged into Facebook, so we're not sure if
           // they are logged into this app or not.
           $('#facebook_button').show();
           $('#loading_spinner').hide();
-          document.getElementById('status').innerHTML = 'Please log ' +
-            'into Facebook.';
+          $('#status').html("Please log into Facebook.");
         }
       }
       // This function is called when someone finishes with the Login
@@ -107,11 +105,9 @@
               if (data === "not_enough_students") {
                 window.location.replace("current.html");
               } else if (data === "not_logged_in_facebook") {
-                $("#form_api_response").html("Something didn't work with the facebook login. Try refreshing the page.");
-                $('#response_modal').modal('show');
+                $('#status').html("Something didn't work with the facebook login. Try refreshing the page.");
               } else if (data === "not_in_fb_group") {
-                $("#form_api_response").html("You're not in the AUCS facebook group. Go and join <a href=\"https://www.facebook.com/groups/aucs.club/\">here</a> first!");
-                $('#response_modal').modal('show');
+                $('#status').html("You're not in the AUCS facebook group. Go and join <a href=\"https://www.facebook.com/groups/aucs.club/\">here</a> first!");
               } else if (data === "current") {
                 window.location.replace("current.html");
               }
