@@ -225,8 +225,8 @@
       $("#edits_form").submit(function () {
         $(".loading_spinner").show();
         var formData = $(this).serialize();
-        if (formData === "email=&studentId=")
-        {
+        if (formData === "email=&studentId=") {
+          $(".loading_spinner").hide();
           return false;
         }
         $.ajax({
@@ -237,10 +237,12 @@
             },
             data: formData,
             success: function( data ) {
+              $(".loading_spinner").hide();
               $("#form_api_response").html(data); 
               $('#response_modal').modal('show');
             },
             error: function( xhr, err ) {
+              $(".loading_spinner").hide();
               $("#form_api_response").html(xhr.responseJSON);
               $('#response_modal').modal('show');
             }
