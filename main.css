@@ -120,7 +120,9 @@ body {
 
 .panel-body {  
   color: #333;
-  text-shadow: 0 1px 1px rgba(0,0,0,.2);
+  text-shadow: 0 0px 0px rgba(0,0,0,.2);
+  text-align: justify;
+  text-justify: auto;
 }
 
 /*
