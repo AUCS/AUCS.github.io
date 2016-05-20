@@ -223,7 +223,7 @@
       $('#pending').hide();
       $('#edits').hide();
       $("#edits_form").submit(function () {
-        $("#loading_spinner").show();
+        $(".loading_spinner").show();
         var formData = $(this).serialize();
         if (formData === "email=&studentId=")
         {
