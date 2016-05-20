@@ -102,14 +102,14 @@
               "Token": accessToken
             },
             success: function( data ) {
-              if (data === "not_enough_students") {
+              if (data === "not_enough_students" || data === "current") {
                 window.location.replace("current.html");
               } else if (data === "not_logged_in_facebook") {
+                $('#loading_spinner').hide();
                 $('#status').html("Something didn't work with the facebook login. Try refreshing the page.");
               } else if (data === "not_in_fb_group") {
+                $('#loading_spinner').hide();
                 $('#status').html("You're not in the AUCS facebook group. Go and join <a href=\"https://www.facebook.com/groups/aucs.club/\">here</a> first!");
-              } else if (data === "current") {
-                window.location.replace("current.html");
               }
             },
             error: function( xhr, err ) {
