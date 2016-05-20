@@ -53,6 +53,7 @@
       }
 
       window.fbAsyncInit = function() {
+        $('#loading_spinner').hide();
         FB.init({
           appId      : '631831156964129',
           cookie     : true,  // enable cookies to allow the server to access 
@@ -73,6 +74,7 @@
         //
         // These three cases are handled in the callback function.
 
+        $('#loading_spinner').show();
         FB.getLoginStatus(function(response) {
           statusChangeCallback(response);
         });
