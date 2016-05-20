@@ -38,6 +38,11 @@
               "Token": response.authResponse.accessToken
             },
             success: function( data ) {
+                $("#name").html(data.Name);
+                $("#student_id").html(data.StudentId);
+                $("#email_address").html(data.EmailAddress);
+                $("#membership_type").html(data.MembershipType);
+                $("#committee_title").html(data.CommitteeTitle);
               
             },
             error: function( xhr, err ) {
@@ -122,6 +127,11 @@
             <div class="panel panel-default">
               <div class="panel-body">
                 <span id="loading_spinner" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                <p>Your name is: <span id="name"></span></p>
+                <p>Your student id is: <span id="student_id"></span></p>
+                <p>Your email address is: <span id="email_address"></span></p>
+                <p>Your membership type is: <span id="membership_type"></span></p>
+                <p>Your committee title is: <span id="committee_title"></span></p>
               </div>
             </div>
             <div id="status"></div>
