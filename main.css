@@ -112,14 +112,16 @@ body {
 
 .cover {
   padding: 0 20px;
-  color: #333;
-  text-shadow: 0 1px 1px rgba(0,0,0,.2);
 }
 .cover .btn-lg {
   padding: 10px 20px;
   font-weight: bold;
 }
 
+.panel-body {  
+  color: #333;
+  text-shadow: 0 1px 1px rgba(0,0,0,.2);
+}
 
 /*
  * Footer
