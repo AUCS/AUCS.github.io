@@ -39,7 +39,7 @@
             },
             success: function( data ) {
                 $('#results').show();
-                $('#loading_spinner').hide();
+                $('.loading_spinner').hide();
                 $("#name").html(data.Name);
                 if (data.StudentId != null) {
                   $("#student_id").html("Your Student Id is confirmed as: " + data.StudentId + ".");                  
@@ -147,19 +147,22 @@
           <div class="inner cover form-wrapper">
             <h2>Become a Member</h2>
             <div class="panel panel-default">
-              <div id="loading_spinner" class="panel-body">
+              <div class="panel-body">
+                <div class="loading_spinner">
+                  <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                </div>
                 <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
-              </div>
-              <div id="pending" class="panel-body">
-                <p class="lead">Your membership status is pending.</p>
-                <p>Unfortunately due to AUU regulations at least 50% of our members must be Adelaide University students. If you are a student please provide your Student Id below to confirm your membership. If you are not a student hang in there, your membership will be confirmed when a place becomes available.</p>
-              </div>
-              <div id="results" class="panel-body">
-                <p>Hi <span id="name"></span>!</p>
-                <p><span id="committee_title"></span></p>
-                <p><span id="membership_type"></span></p>
-                <p><span id="student_id">You haven't provided an Adelaide Uni Student Id.</span></p>
-                <p><span id="email_address">You haven't opted in to our email newsletter.</span></p>
+                <div id="pending">
+                  <p class="lead">Your membership status is pending.</p>
+                  <p>Unfortunately due to AUU regulations at least 50% of our members must be Adelaide University students. If you are a student please provide your Student Id below to confirm your membership. If you are not a student hang in there, your membership will be confirmed when a place becomes available.</p>
+                </div>
+                <div id="results">
+                  <p>Hi <span id="name"></span>!</p>
+                  <p><span id="committee_title"></span></p>
+                  <p><span id="membership_type"></span></p>
+                  <p><span id="student_id">You haven't provided an Adelaide Uni Student Id.</span></p>
+                  <p><span id="email_address">You haven't opted in to our email newsletter.</span></p>
+                </div>
               </div>
             </div>
             <div id="status"></div>

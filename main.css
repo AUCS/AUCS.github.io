@@ -179,9 +179,11 @@ body {
 /*
  *  Form Submit button spinner
  */
+.loading_spinner {  
+  text-align: center;
+}
 
 .glyphicon-refresh-animate {
-  text-align: center;
   animation: spin .7s infinite linear;
 }
 

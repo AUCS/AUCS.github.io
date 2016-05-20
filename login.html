@@ -36,13 +36,13 @@
         } else if (response.status === 'not_authorized') {
           // The person is logged into Facebook, but not your app.
           $('#facebook_button').show();
-          $('#loading_spinner').hide();
+          $('.loading_spinner').hide();
           $('#status').html("Please log into this app.");
         } else {
           // The person is not logged into Facebook, so we're not sure if
           // they are logged into this app or not.
           $('#facebook_button').show();
-          $('#loading_spinner').hide();
+          $('.loading_spinner').hide();
           $('#status').html("Please log into Facebook.");
         }
       }
@@ -76,7 +76,7 @@
         //
         // These three cases are handled in the callback function.
 
-        $('#loading_spinner').show();
+        $('.loading_spinner').show();
         FB.getLoginStatus(function(response) {
           statusChangeCallback(response);
         });
@@ -105,10 +105,10 @@
               if (data === "not_enough_students" || data === "current") {
                 window.location.replace("current.html");
               } else if (data === "not_logged_in_facebook") {
-                $('#loading_spinner').hide();
+                $('.loading_spinner').hide();
                 $('#status').html("Something didn't work with the facebook login. Try refreshing the page.");
               } else if (data === "not_in_fb_group") {
-                $('#loading_spinner').hide();
+                $('.loading_spinner').hide();
                 $('#status').html("You're not in the AUCS facebook group. Go and join <a href=\"https://www.facebook.com/groups/aucs.club/\">here</a> first!");
               }
             },
@@ -148,7 +148,9 @@
             <div class="panel panel-default">
               <div class="panel-body">
                 <div id="facebook_button" class="fb-login-button" scope="public_profile" data-size="xlarge" data-auto-logout-link="true" onlogin="checkLoginState();"></div>
-                <span id="loading_spinner" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                <div class="loading_spinner">
+                  <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                </div>
                 <div id="status"></div>
               </div>
             </div>
@@ -187,7 +189,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
     <script>
-      $('#loading_spinner').hide();      
+      $('.loading_spinner').hide();      
     </script>
   </body>
 </html>
