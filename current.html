@@ -225,9 +225,16 @@
       $("#edits_form").submit(function () {
         $("#loading_spinner").show();
         var formData = $(this).serialize();
+        if (formData === "email=&studentId=")
+        {
+          return false;
+        }
         $.ajax({
             url: 'http://localhost:49863/api/Edits',
             type: 'POST',
+            headers: {
+              "Token": response.authResponse.accessToken
+            },
             data: formData,
             success: function( data ) {
               $("#form_api_response").html(data); 
