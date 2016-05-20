@@ -99,8 +99,7 @@
             },
             success: function( data ) {
               if (data === "not_enough_students") {
-                $("#form_api_response").html("Unfortunately there are too many non Adelaide University Students that are currently members of the AUCS. An account has been created for you but will not be activated unless you add and confirm a Student Id.");
-                $('#response_modal').modal('show');
+                window.location.replace("current.html");
               } else if (data === "not_logged_in_facebook") {
                 $("#form_api_response").html("Something didn't work with the facebook login. Try refreshing the page.");
                 $('#response_modal').modal('show');
