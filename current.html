@@ -23,12 +23,33 @@
     <script>
       // This is called with the results from from FB.getLoginStatus().
       function statusChangeCallback(response) {
-        console.log('statusChangeCallback');
-        console.log(response);
-        // The response object is returned with a status field that lets the
-        // app know the current login status of the person.
-        // Full docs on the response object can be found in the documentation
-        // for FB.getLoginStatus().
+        $("#edits_form").submit(function () {
+          $(".loading_spinner").show();
+          var formData = $(this).serialize();
+          if (formData === "email=&studentId=") {
+            $(".loading_spinner").hide();
+            return false;
+          }
+          $.ajax({
+              url: 'http://localhost:49863/api/Edits',
+              type: 'POST',
+              headers: {
+                "Token": response.authResponse.accessToken
+              },
+              data: formData,
+              success: function( data ) {
+                $(".loading_spinner").hide();
+                $("#form_api_response").html(data); 
+                $('#response_modal').modal('show');
+              },
+              error: function( xhr, err ) {
+                $(".loading_spinner").hide();
+                $("#form_api_response").html(xhr.responseJSON);
+                $('#response_modal').modal('show');
+              }
+          }); 
+          return false;
+        });
         if (response.status === 'connected') {
           var url = 'http://aucsmembershiphandler.azurewebsites.net/api/Current/';
           $.ajax({
@@ -81,7 +102,7 @@
             }
           });
         } else {
-          window.location.replace("current.html");
+          window.location.replace("login.html");
         }
       }
       // This function is called when someone finishes with the Login
@@ -222,33 +243,6 @@
       $('#results').hide();
       $('#pending').hide();
       $('#edits').hide();
-      $("#edits_form").submit(function () {
-        $(".loading_spinner").show();
-        var formData = $(this).serialize();
-        if (formData === "email=&studentId=") {
-          $(".loading_spinner").hide();
-          return false;
-        }
-        $.ajax({
-            url: 'http://localhost:49863/api/Edits',
-            type: 'POST',
-            headers: {
-              "Token": response.authResponse.accessToken
-            },
-            data: formData,
-            success: function( data ) {
-              $(".loading_spinner").hide();
-              $("#form_api_response").html(data); 
-              $('#response_modal').modal('show');
-            },
-            error: function( xhr, err ) {
-              $(".loading_spinner").hide();
-              $("#form_api_response").html(xhr.responseJSON);
-              $('#response_modal').modal('show');
-            }
-        }); 
-        return false;
-      });
     </script>
   </body>
 </html>
