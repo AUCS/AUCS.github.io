@@ -35,7 +35,7 @@
             url: url,
             type: 'POST',
             headers: {
-              "Token": response.accessToken
+              "Token": response.authResponse.accessToken
             },
             success: function( data ) {
               
