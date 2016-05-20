@@ -41,11 +41,31 @@
                 $('#results').show();
                 $('#loading_spinner').hide();
                 $("#name").html(data.Name);
-                $("#student_id").html(data.StudentId);
-                $("#email_address").html(data.EmailAddress);
-                $("#membership_type").html(data.MembershipType);
-                $("#committee_title").html(data.CommitteeTitle);
-              
+                if (data.StudentId != null) {
+                  $("#student_id").html("Your Student Id is confirmed as: " + data.StudentId + ".");                  
+                }
+                if (data.EmailAddress != null) {
+                  $("#email_address").html("You have opted in to recieve our newsletter at " + data.EmailAddress + ".");
+                }
+                if (data.MembershipType != null) {
+                  if (data.MembershipType === "Pending") {
+                    $('#pending').show();
+                  } else if (data.MembershipType === "Standard") {
+                    $("#membership_type").html("You have a standard membership with the AUCS. Upgrade to premium below.");
+                  } else if (data.MembershipType === "Premium") {
+                    $("#membership_type").html("You have a premium membership with the AUCS.");
+                  } else if (data.MembershipType === "Lifetime") {
+                    $("#membership_type").html("You have a lifetime membership with the AUCS.");
+                  }
+                }
+                if (data.CommitteeTitle != null) {
+                  if (data.CommitteeTitle === "General Member") {
+                    $("#committee_title").html("You are on the committee as a General Member.");
+                  }
+                  else {
+                    $("#committee_title").html("You are on the committee as the " + data.CommitteeTitle + ".");
+                  }
+                }            
             },
             error: function( xhr, err ) {
               if (xhr.responseJSON != null) {
@@ -130,12 +150,16 @@
               <div id="loading_spinner" class="panel-body">
                 <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
               </div>
+              <div id="pending" class="panel-body">
+                <p class="lead">Your membership status is pending.</p>
+                <p>Unfortunately due to AUU regulations at least 50% of our members must be Adelaide University students. If you are a student please provide your Student Id below to confirm your membership. If you are not a student hang in there, your membership will be confirmed when a place becomes available.</p>
+              </div>
               <div id="results" class="panel-body">
-                <p>Your name is: <span id="name"></span></p>
-                <p>Your student id is: <span id="student_id"></span></p>
-                <p>Your email address is: <span id="email_address"></span></p>
-                <p>Your membership type is: <span id="membership_type"></span></p>
-                <p>Your committee title is: <span id="committee_title"></span></p>
+                <p>Hi <span id="name"></span>!</p>
+                <p><span id="committee_title"></span></p>
+                <p><span id="membership_type"></span></p>
+                <p><span id="student_id">You haven't provided an Adelaide Uni Student Id.</span></p>
+                <p><span id="email_address">You opted in to our email newsletter.</span></p>
               </div>
             </div>
             <div id="status"></div>
@@ -174,7 +198,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
     <script>
-      $('#results').hide();     
+      $('#results').hide();
+      $('#pending').hide();  
     </script>
   </body>
 </html>
