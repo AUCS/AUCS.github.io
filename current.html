@@ -187,15 +187,19 @@
                 </div>
                 <div id="edits">
                   <form id="edits_form">
-                    <p>If you would like to recieve our email newsletter please provide your email address here. An email will be sent to confirm this address.</p>
-                    <div id="edit_email" class="form-group">
-                      <label for="Email" class="sr-only">Email Address</label>
-                      <input type="email" id="Email" name="email" class="form-control" placeholder="Email Address">
+                    <div id="edit_email">
+                      <p>If you would like to recieve our email newsletter please provide your email address here. An email will be sent to confirm this address.</p>
+                      <div class="form-group">
+                        <label for="Email" class="sr-only">Email Address</label>
+                        <input type="email" id="Email" name="email" class="form-control" placeholder="Email Address">
+                      </div>
                     </div>
-                    <p>If you are a student of Adelaide University please provide your Student Id. An email will be sent to your student email for confirmation.</p>
-                    <div id="edit_student_id" class="form-group">
-                      <label for="StudentId" class="sr-only">Student Id</label>
-                      <input type="string" id="StudentId" name="studentId" class="form-control" placeholder="a123456">
+                    <div id="edit_student_id">
+                      <p>If you are a student of Adelaide University please provide your Student Id. An email will be sent to your student email for confirmation.</p>
+                      <div class="form-group">
+                        <label for="StudentId" class="sr-only">Student Id</label>
+                        <input type="string" id="StudentId" name="studentId" class="form-control" placeholder="a123456">
+                      </div>
                     </div>
                     <button type="submit" class="btn btn-block btn-large btn-primary">
                       <span id="join_button_text">Update</span>
@@ -247,8 +251,8 @@
       $('#pending').hide();
       $('#edits').hide();
       $('#show_all_edits').click( function(){
-        $("#edit_email").hide();
-        $("#edit_student_id").hide();
+        $("#edit_email").show();
+        $("#edit_student_id").show();
       });
     </script>
   </body>
