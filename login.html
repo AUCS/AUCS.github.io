@@ -81,7 +81,6 @@
 
       // Load the SDK asynchronously
       (function(d, s, id) {
-        $('#loading_spinner').hide();
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
@@ -186,5 +185,8 @@
     <!-- Placed at the end of the document so the pages load faster --> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
+    <script>
+      $('#loading_spinner').hide();      
+    </script>
   </body>
 </html>
