@@ -39,6 +39,7 @@
             },
             success: function( data ) {
                 $('#results').show();
+                $('#loading_spinner').hide();
                 $("#name").html(data.Name);
                 $("#student_id").html(data.StudentId);
                 $("#email_address").html(data.EmailAddress);
@@ -130,7 +131,6 @@
                 <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
               </div>
               <div id="results" class="panel-body">
-                <span id="loading_spinner" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
                 <p>Your name is: <span id="name"></span></p>
                 <p>Your student id is: <span id="student_id"></span></p>
                 <p>Your email address is: <span id="email_address"></span></p>

@@ -91,6 +91,7 @@
       // Here we run a very simple test of the Graph API after login is
       // successful.  See statusChangeCallback() for when this call is made.
       function testAPI(accessToken) {
+        $('#facebook_button').hide();
         var url = 'http://aucsmembershiphandler.azurewebsites.net/api/Login/';
         $.ajax({
             url: url,
@@ -146,7 +147,7 @@
             <h2>Become a Member</h2>
             <div class="panel panel-default">
               <div class="panel-body">
-                <div class="fb-login-button" scope="public_profile" data-size="xlarge" data-auto-logout-link="true" onlogin="checkLoginState();"></div>
+                <div id="facebook_button" class="fb-login-button" scope="public_profile" data-size="xlarge" data-auto-logout-link="true" onlogin="checkLoginState();"></div>
                 <span id="loading_spinner" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
               </div>
             </div>
