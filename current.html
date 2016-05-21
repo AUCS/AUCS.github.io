@@ -183,7 +183,7 @@
                   <p><span id="membership_type"></span></p>
                   <p><span id="student_id">You haven't provided an Adelaide Uni Student Id.</span></p>
                   <p><span id="email_address">You haven't opted in to our email newsletter.</span></p>
-                  <p>If any of the above information is incorrect click <a id="show_all_edits" href="#">here</a>.</p>
+                  <p><span id="incorrect_info">If any of the above information is incorrect click <a id="show_all_edits" href="#">here</a>.</span></p>
                 </div>
                 <div id="edits">
                   <form id="edits_form">
@@ -205,7 +205,7 @@
                       <span id="join_button_text">Update</span>
                     </button>
                   </form>
-                  <hr />
+                  <p></p>
                 </div>
                 <div class="loading_spinner">
                   <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
@@ -254,6 +254,7 @@
       $('#show_all_edits').click( function(){
         $("#edit_email").show();
         $("#edit_student_id").show();
+        $("#incorrect_info").hide();
       });
     </script>
   </body>
