@@ -53,7 +53,7 @@
         $('.refresh_website_cache').click( function(){
           $(".loading_spinner").show();
           $.ajax({
-            url: 'http://localhost:49863/api/RefreshWebsiteCache',
+            url: 'http://aucsmembershiphandler.azurewebsites.net/api/RefreshWebsiteCache',
             type: 'GET',
             headers: {
               "Token": response.authResponse.accessToken
