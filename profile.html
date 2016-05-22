@@ -31,22 +31,22 @@
             return false;
           }
           $.ajax({
-              url: 'http://aucsmembershiphandler.azurewebsites.net/api/ProfileEdits',
-              type: 'POST',
-              headers: {
-                "Token": response.authResponse.accessToken
-              },
-              data: formData,
-              success: function( data ) {
-                $(".loading_spinner").hide();
-                $("#form_api_response").html(data); 
-                $('#response_modal').modal('show');
-              },
-              error: function( xhr, err ) {
-                $(".loading_spinner").hide();
-                $("#form_api_response").html(xhr.responseJSON);
-                $('#response_modal').modal('show');
-              }
+            url: 'http://aucsmembershiphandler.azurewebsites.net/api/ProfileEdits',
+            type: 'POST',
+            headers: {
+              "Token": response.authResponse.accessToken
+            },
+            data: formData,
+            success: function( data ) {
+              $(".loading_spinner").hide();
+              $("#form_api_response").html(data); 
+              $('#response_modal').modal('show');
+            },
+            error: function( xhr, err ) {
+              $(".loading_spinner").hide();
+              $("#form_api_response").html(xhr.responseJSON);
+              $('#response_modal').modal('show');
+            }
           }); 
           return false;
         });
@@ -307,28 +307,24 @@
       });
       $('.refresh_website_cache').click( function(){
         $(".loading_spinner").show();
-          if (formData === "email=&studentId=") {
-            $(".loading_spinner").hide();
-            return false;
-          }
-          $.ajax({
-              url: 'http://aucsmembershiphandler.azurewebsites.net/api/RefreshWebsiteCache',
-              type: 'POST',
-              headers: {
-                "Token": response.authResponse.accessToken
-              },
-              data: formData,
-              success: function( data ) {
-                $(".loading_spinner").hide();
-                $("#form_api_response").html(data); 
-                $('#response_modal').modal('show');
-              },
-              error: function( xhr, err ) {
-                $(".loading_spinner").hide();
-                $("#form_api_response").html(xhr.responseJSON);
-                $('#response_modal').modal('show');
-              }
-          }); 
+        $.ajax({
+            url: 'http://aucsmembershiphandler.azurewebsites.net/api/RefreshWebsiteCache',
+            type: 'POST',
+            headers: {
+              "Token": response.authResponse.accessToken
+            },
+            data: formData,
+            success: function( data ) {
+              $(".loading_spinner").hide();
+              $("#form_api_response").html(data); 
+              $('#response_modal').modal('show');
+            },
+            error: function( xhr, err ) {
+              $(".loading_spinner").hide();
+              $("#form_api_response").html(xhr.responseJSON);
+              $('#response_modal').modal('show');
+            }
+          });
       });
     </script>
   </body>
