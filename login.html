@@ -103,7 +103,7 @@
             },
             success: function( data ) {
               if (data === "not_enough_students" || data === "current") {
-                window.location.replace("current.html");
+                window.location.replace("profile.html");
               } else if (data === "not_logged_in_facebook") {
                 $('.loading_spinner').hide();
                 $('#status').html("Something didn't work with the facebook login. Try refreshing the page.");
