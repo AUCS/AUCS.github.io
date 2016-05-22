@@ -19,78 +19,6 @@
   </head>
 
   <body>
-    <div id="fb-root"></div>
-    <script>
-      // This is called with the results from from FB.getLoginStatus().
-      function statusChangeCallback(response) {
-        if (response.status === 'connected') {
-          var url = 'https://aucsdata.blob.core.windows.net/website-cache/CommitteeList';
-          $.ajax({
-            url: url,
-            type: 'GET',
-            success: function( data ) {
-                $("#form_api_response").html(data);
-                $('#response_modal').modal('show');
-            },
-            error: function( xhr, err ) {
-              if (xhr.responseJSON != null) {
-                $("#form_api_response").html(xhr.responseJSON.Message);
-                $('#response_modal').modal('show');
-              }
-              else {
-                $("#form_api_response").html(err);
-                $('#response_modal').modal('show');
-              }
-            }
-          });
-        } else {
-          window.location.replace("login.html");
-        }
-      }
-      // This function is called when someone finishes with the Login
-      // Button.  See the onlogin handler attached to it in the sample
-      // code below.
-      function checkLoginState() {
-        FB.getLoginStatus(function(response) {
-          statusChangeCallback(response);
-        });
-      }
-
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '631831156964129',
-          cookie     : true,  // enable cookies to allow the server to access 
-                              // the session
-          xfbml      : true,  // parse social plugins on this page
-          version    : 'v2.6' // use graph api version 2.5
-        });
-
-        // Now that we've initialized the JavaScript SDK, we call 
-        // FB.getLoginStatus().  This function gets the state of the
-        // person visiting this page and can return one of three states to
-        // the callback you provide.  They can be:
-        //
-        // 1. Logged into your app ('connected')
-        // 2. Logged into Facebook, but not your app ('not_authorized')
-        // 3. Not logged into Facebook and can't tell if they are logged into
-        //    your app or not.
-        //
-        // These three cases are handled in the callback function.
-
-        FB.getLoginStatus(function(response) {
-          statusChangeCallback(response);
-        });
-      };
-
-      // Load the SDK asynchronously
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="cover-container">
@@ -113,15 +41,7 @@
             <h2>Committee</h2>
             <div class="panel panel-default">
               <div class="panel-body">
-                <div id="your_status">
-                  <p>You are not on the committee</p>
-                </div>
-                <div id="the_committee">
-                  <p>The current committee is:</p>
-                </div>
-                <div class="loading_spinner">
-                  <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
-                </div>
+                
               </div>
             </div>
             <div id="status"></div>
@@ -160,14 +80,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
     <script>
-      $('#results').hide();
-      $('#pending').hide();
-      $('#edits').hide();
-      $('#show_all_edits').click( function(){
-        $("#edit_email").show();
-        $("#edit_student_id").show();
-        $("#incorrect_info").hide();
-      });
+      var url = 'https://aucsdata.blob.core.windows.net/website-cache/CommitteeList';
+        $.ajax({
+          url: url,
+          type: 'GET',
+          success: function( data ) {
+              $("#form_api_response").html(data);
+              $('#response_modal').modal('show');
+          },
+          error: function( xhr, err ) {
+            if (xhr.responseJSON != null) {
+              $("#form_api_response").html(xhr.responseJSON.Message);
+              $('#response_modal').modal('show');
+            }
+            else {
+              $("#form_api_response").html(err);
+              $('#response_modal').modal('show');
+            }
+          }
+        });
     </script>
   </body>
 </html>
