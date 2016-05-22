@@ -54,11 +54,10 @@
           $(".loading_spinner").show();
           $.ajax({
             url: 'http://aucsmembershiphandler.azurewebsites.net/api/RefreshWebsiteCache',
-            type: 'POST',
+            type: 'GET',
             headers: {
               "Token": response.authResponse.accessToken
             },
-            data: formData,
             success: function( data ) {
               $(".loading_spinner").hide();
               $("#form_api_response").html(data); 
