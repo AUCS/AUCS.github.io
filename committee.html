@@ -41,7 +41,7 @@
             <h2>Committee</h2>
             <div class="panel panel-default">
               <div class="panel-body">
-                
+                <table id="committee_table"></table>
               </div>
             </div>
             <div id="status"></div>
@@ -81,23 +81,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
     <script>
       var url = 'http://storage.aucs.club/website-cache/CommitteeList';
-        $.ajax({
-          url: url,
-          type: 'GET',
-          success: function( data ) {
-              $("#form_api_response").html(data);
-              $('#response_modal').modal('show');
-          },
-          error: function( xhr, err ) {
-            if (xhr.responseJSON != null) {
-              $("#form_api_response").html(xhr.responseJSON.Message);
-              $('#response_modal').modal('show');
-            }
-            else {
-              $("#form_api_response").html(err);
-              $('#response_modal').modal('show');
-            }
-          }
+        $.getJSON(url, { /* data */ }, function(json_data){
+          var table_obj = $('#committee_table');
+          $.each(json_data, function(index, item){
+              var table_row = $('<tr>', {Title: item.Title});
+              var table_cell = $('<td>', {Name: item.Name});
+              table_row.append(table_cell);
+              table_obj.append(table_row);
+          });
         });
     </script>
   </body>
