@@ -23,74 +23,14 @@
     <script>
       // This is called with the results from from FB.getLoginStatus().
       function statusChangeCallback(response) {
-        $("#edits_form").submit(function () {
-          $(".loading_spinner").show();
-          var formData = $(this).serialize();
-          if (formData === "email=&studentId=") {
-            $(".loading_spinner").hide();
-            return false;
-          }
-          $.ajax({
-              url: 'http://aucsmembershiphandler.azurewebsites.net/api/Edits',
-              type: 'POST',
-              headers: {
-                "Token": response.authResponse.accessToken
-              },
-              data: formData,
-              success: function( data ) {
-                $(".loading_spinner").hide();
-                $("#form_api_response").html(data); 
-                $('#response_modal').modal('show');
-              },
-              error: function( xhr, err ) {
-                $(".loading_spinner").hide();
-                $("#form_api_response").html(xhr.responseJSON);
-                $('#response_modal').modal('show');
-              }
-          }); 
-          return false;
-        });
         if (response.status === 'connected') {
-          var url = 'http://aucsmembershiphandler.azurewebsites.net/api/Profile/';
+          var url = 'https://aucsdata.blob.core.windows.net/website-cache/CommitteeList';
           $.ajax({
             url: url,
-            type: 'POST',
-            headers: {
-              "Token": response.authResponse.accessToken
-            },
+            type: 'GET',
             success: function( data ) {
-                $('#results').show();
-                $('#edits').show(); 
-                $('.loading_spinner').hide();
-                $("#name").html(data.Name);
-                if (data.StudentId != null) {
-                  $("#student_id").html("Your Student Id is confirmed as: " + data.StudentId + ".");
-                  $("#edit_student_id").hide();
-                }
-                if (data.EmailAddress != null) {
-                  $("#email_address").html("You have opted in to recieve our newsletter at " + data.EmailAddress + ".");
-                  $("#edit_email").hide();
-                }
-                if (data.CommitteeTitle != null) {
-                  if (data.CommitteeTitle === "General Member") {
-                    $("#committee_title").html("You are on the committee as a General Member.");
-                  }
-                  else {
-                    $("#committee_title").html("You are on the committee as the " + data.CommitteeTitle + ".");
-                  }
-                }
-                if (data.MembershipType != null) {
-                  if (data.MembershipType === "Pending") {
-                    $('#pending').show();
-                    $('#results').hide();
-                  } else if (data.MembershipType === "Standard") {
-                    $("#membership_type").html("You have a standard membership with the AUCS.");
-                  } else if (data.MembershipType === "Premium") {
-                    $("#membership_type").html("You have a premium membership with the AUCS.");
-                  } else if (data.MembershipType === "Lifetime") {
-                    $("#membership_type").html("You have a lifetime membership with the AUCS.");
-                  }
-                }          
+                $("#form_api_response").html(data);
+                $('#response_modal').modal('show');
             },
             error: function( xhr, err ) {
               if (xhr.responseJSON != null) {
@@ -160,7 +100,7 @@
               <nav>
                 <ul class="nav masthead-nav">
                   <li><a href="index.html">Home</a></li>
-                  <!--<li><a href="cheeses.html">Cheeses</a></li>-->
+                  <li class="active"><a href="committee.html">Committee</a></li>
                   <!--<li><a href="#">About</a></li>-->
                 </ul>
               </nav>
