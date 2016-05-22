@@ -50,6 +50,27 @@
           }); 
           return false;
         });
+        $('.refresh_website_cache').click( function(){
+          $(".loading_spinner").show();
+          $.ajax({
+            url: 'http://aucsmembershiphandler.azurewebsites.net/api/RefreshWebsiteCache',
+            type: 'POST',
+            headers: {
+              "Token": response.authResponse.accessToken
+            },
+            data: formData,
+            success: function( data ) {
+              $(".loading_spinner").hide();
+              $("#form_api_response").html(data); 
+              $('#response_modal').modal('show');
+            },
+            error: function( xhr, err ) {
+              $(".loading_spinner").hide();
+              $("#form_api_response").html(xhr.responseJSON);
+              $('#response_modal').modal('show');
+            }
+          });
+        });
         if (response.status === 'connected') {
           var url = 'http://aucsmembershiphandler.azurewebsites.net/api/Profile/';
           $.ajax({
@@ -304,27 +325,6 @@
         $('#edits').show();
         $("#edit_email").show();
         $("#edit_submit_button").show();
-      });
-      $('.refresh_website_cache').click( function(){
-        $(".loading_spinner").show();
-        $.ajax({
-            url: 'http://aucsmembershiphandler.azurewebsites.net/api/RefreshWebsiteCache',
-            type: 'POST',
-            headers: {
-              "Token": response.authResponse.accessToken
-            },
-            data: formData,
-            success: function( data ) {
-              $(".loading_spinner").hide();
-              $("#form_api_response").html(data); 
-              $('#response_modal').modal('show');
-            },
-            error: function( xhr, err ) {
-              $(".loading_spinner").hide();
-              $("#form_api_response").html(xhr.responseJSON);
-              $('#response_modal').modal('show');
-            }
-          });
       });
     </script>
   </body>
