@@ -179,7 +179,7 @@
                   <div id="membership_pending">
                     <p class="lead">Your membership status is pending.</p>
                     <p>Unfortunately due to AUU regulations at least 50% of our members must be Adelaide University students. If you are a student please provide your Student Id below to confirm your membership. If you are not a student hang in there, your membership will be confirmed when a place becomes available.</p>
-                    <p class="lead"><a id="show_student_id_edit" href="#">I have a Student Id</a>.</p>
+                    <p class="lead"><a class="show_student_id_edit" href="#">I have a Student Id</a>.</p>
                   </div>
                   <div id="membership_standard">
                     <p>You have a standard membership with the AUCS.</p>
@@ -200,16 +200,16 @@
                     <p>You are on the commitee as <span id="committee_title_value"></span>. You are required to vote on things here.</p>
                   </div>
                   <div id="student_id_no">
-                    <p>You have not provided a University of Adelaide Student Id. <a id="show_student_id_edit" href="#">Update</a>.</p>
+                    <p>You have not provided a University of Adelaide Student Id. <a class="show_student_id_edit" href="#">Update</a>.</p>
                   </div>
                   <div id="student_id_yes">
-                    <p>Your student id is <span id="student_id_value"></span>. <a id="show_student_id_edit" href="#">Update</a>.</p>
+                    <p>Your student id is <span id="student_id_value"></span>. <a class="show_student_id_edit" href="#">Update</a>.</p>
                   </div>
                   <div id="newsletter_no">
-                    <p>You have not opted in to our newsletter. <a id="show_email_edit" href="#">Opt in</a>.</p>
+                    <p>You have not opted in to our newsletter. <a class="show_email_edit" href="#">Opt in</a>.</p>
                   </div>
                   <div id="newsletter_yes">
-                    <p>We are sending our newsletter to <span id="newsletter_value"></span>. <a id="show_email_edit" href="#">Update</a>.</p>
+                    <p>We are sending our newsletter to <span id="newsletter_value"></span>. <a class="show_email_edit" href="#">Update</a>.</p>
                   </div>
                 </div>
                 <div id="edits">
@@ -295,12 +295,12 @@
       $("#edit_email").hide();
       $("#edit_submit_button").hide();
       
-      $('#show_student_id_edit').click( function(){
+      $('.show_student_id_edit').click( function(){
         $('#edits').show();
         $("#edit_student_id").show();
         $("#edit_submit_button").show();
       });
-      $('#show_email_edit').click( function(){
+      $('.show_email_edit').click( function(){
         $('#edits').show();
         $("#edit_email").show();
         $("#edit_submit_button").show();
