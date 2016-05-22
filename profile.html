@@ -194,10 +194,10 @@
                     <p>You are not on the committee. If there are votes opens to non-committee members you will be able to vote here.</p>
                   </div>
                   <div id="committee_general">
-                    <p>You are a General Member on the commitee. You are required to vote on things here.</p>
+                    <p>You are a General Member on the commitee. You are required to vote on things here. You can refresh the public website cache <a class="refresh_website_cache" href="#">here</a>.</p>
                   </div>
                   <div id="committee_title">
-                    <p>You are on the commitee as <span id="committee_title_value"></span>. You are required to vote on things here.</p>
+                    <p>You are on the commitee as <span id="committee_title_value"></span>. You are required to vote on things here. You can refresh the public website cache <a class="refresh_website_cache" href="#">here</a>.</p>
                   </div>
                   <div id="student_id_no">
                     <p>You have not provided a University of Adelaide Student Id. <a class="show_student_id_edit" href="#">Update</a>.</p>
@@ -304,6 +304,31 @@
         $('#edits').show();
         $("#edit_email").show();
         $("#edit_submit_button").show();
+      });
+      $('.refresh_website_cache').click( function(){
+        $(".loading_spinner").show();
+          if (formData === "email=&studentId=") {
+            $(".loading_spinner").hide();
+            return false;
+          }
+          $.ajax({
+              url: 'http://aucsmembershiphandler.azurewebsites.net/api/RefreshWebsiteCache',
+              type: 'POST',
+              headers: {
+                "Token": response.authResponse.accessToken
+              },
+              data: formData,
+              success: function( data ) {
+                $(".loading_spinner").hide();
+                $("#form_api_response").html(data); 
+                $('#response_modal').modal('show');
+              },
+              error: function( xhr, err ) {
+                $(".loading_spinner").hide();
+                $("#form_api_response").html(xhr.responseJSON);
+                $('#response_modal').modal('show');
+              }
+          }); 
       });
     </script>
   </body>
