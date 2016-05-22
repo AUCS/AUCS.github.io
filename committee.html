@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>AUCS - Profile</title>
+    <title>AUCS - Committee</title>
 
     <!-- Bootstrap core CSS --> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -170,42 +170,14 @@
           <div class="spacer"></div>
           
           <div class="inner cover form-wrapper">
-            <h2>Profile</h2>
+            <h2>Committee</h2>
             <div class="panel panel-default">
               <div class="panel-body">
-                <div id="pending">
-                  <p class="lead">Your membership status is pending.</p>
-                  <p>Unfortunately due to AUU regulations at least 50% of our members must be Adelaide University students. If you are a student please provide your Student Id below to confirm your membership. If you are not a student hang in there, your membership will be confirmed when a place becomes available.</p>
+                <div id="your_status">
+                  <p>You are not on the committee</p>
                 </div>
-                <div id="results">
-                  <p>Hi <span id="name"></span>!</p>
-                  <p><span id="committee_title"></span></p>
-                  <p><span id="membership_type"></span></p>
-                  <p><span id="student_id">You haven't provided an Adelaide Uni Student Id.</span></p>
-                  <p><span id="email_address">You haven't opted in to our email newsletter.</span></p>
-                  <p><span id="incorrect_info">If any of the above information is incorrect click <a id="show_all_edits" href="#">here</a>.</span></p>
-                </div>
-                <div id="edits">
-                  <form id="edits_form">
-                    <div id="edit_email">
-                      <p>If you would like to recieve our email newsletter please provide your email address here. An email will be sent to confirm this address.</p>
-                      <div class="form-group">
-                        <label for="Email" class="sr-only">Email Address</label>
-                        <input type="email" id="Email" name="email" class="form-control" placeholder="Email Address">
-                      </div>
-                    </div>
-                    <div id="edit_student_id">
-                      <p>If you are a student of Adelaide University please provide your Student Id. An email will be sent to your student email for confirmation.</p>
-                      <div class="form-group">
-                        <label for="StudentId" class="sr-only">Student Id</label>
-                        <input type="string" id="StudentId" name="studentId" class="form-control" placeholder="a123456">
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-block btn-large btn-primary">
-                      <span id="join_button_text">Update</span>
-                    </button>
-                  </form>
-                  <p></p>
+                <div id="the_committee">
+                  <p>The current committee is:</p>
                 </div>
                 <div class="loading_spinner">
                   <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
