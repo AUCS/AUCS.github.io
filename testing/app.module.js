@@ -3,8 +3,8 @@
 // Define the `aucsApp` module
 angular.module('aucsApp', [
   'ngRoute',
-  'ui.bootstrap',
   'ngAnimate',
+  'ui.bootstrap',
   'navigation',
   'home',
   'footnote',

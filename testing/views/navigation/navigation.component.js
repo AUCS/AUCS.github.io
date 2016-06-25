@@ -7,9 +7,9 @@ angular.
 		templateUrl: 'views/navigation/navigation.template.html',
 		controller: [
 			function NavigationController() {
-				this.Visible = false;
+				this.Hidden = true;
 				this.ToggleNav = function() {
-					this.Visible = !this.Visible;
+					this.Hidden = !this.Hidden;
 				};
 			}
 		]
