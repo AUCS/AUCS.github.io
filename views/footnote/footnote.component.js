@@ -6,7 +6,7 @@ angular.
   component('footnote', {
     templateUrl: 'views/footnote/footnote.template.html',
     controller: ['Footnote',
-      function HomeController(Footer) {
+      function HomeController(Footnote) {
           
       }
     ]
