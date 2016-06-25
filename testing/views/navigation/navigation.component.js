@@ -8,7 +8,7 @@ angular.
 		controller: [
 			function NavigationController() {
 				this.Visible = false;
-				function ToggleNav() {
+				this.ToggleNav = function() {
 					this.Visible = !this.Visible;
 				};
 			}
