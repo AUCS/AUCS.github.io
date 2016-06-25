@@ -1,6 +1,6 @@
 'use strict';
 
-// Register `phoneList` component, along with its associated controller and template
+// Register `navigation` component, along with its associated controller and template
 angular.
 	module('navigation').
 	component('navigation', {
