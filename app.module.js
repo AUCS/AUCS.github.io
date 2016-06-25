@@ -1,10 +1,11 @@
 'use strict';
 
-// Define the `phonecatApp` module
-angular.module('phonecatApp', [
+// Define the `aucsApp` module
+angular.module('aucsApp', [
   'ngAnimate',
   'ngRoute',
   'core',
   'phoneDetail',
   'phoneList',
+  'ngFacebook',
 ]);

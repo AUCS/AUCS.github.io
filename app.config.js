@@ -1,7 +1,7 @@
 'use strict';
 
 angular.
-  module('phonecatApp').
+  module('aucsApp').
   config(['$locationProvider' ,'$routeProvider',
     function config($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');
@@ -13,6 +13,6 @@ angular.
         when('/phones/:phoneId', {
           template: '<phone-detail></phone-detail>'
         }).
-        otherwise('/phones');
+        otherwise('/home');
     }
   ]);
