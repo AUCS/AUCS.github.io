@@ -7,5 +7,6 @@ angular.module('aucsApp', [
   'core',
   'phoneDetail',
   'phoneList',
-  'ngFacebook',
+  'home',
+  'ezfb',
 ]);

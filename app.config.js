@@ -19,7 +19,11 @@ angular.
         otherwise('/home');
     }
   ]).
-  config(function($facebookProvider) {
-    $facebookProvider.setAppId('testing');
-    $facebookProvider.setPermissions("email");
-  });
+  config(['ezfbProvider',
+    function(ezfbProvider) {
+      ezfbProvider.setInitParams({
+        appId: '631831156964129',
+        version: 'v2.6'
+      })
+    }
+  ]);
