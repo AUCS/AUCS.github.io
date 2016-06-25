@@ -2,10 +2,10 @@
 
 // Register `footer` component, along with its associated controller and template
 angular.
-  module('footer').
-  component('footer', {
-    templateUrl: 'views/footer/footer.template.html',
-    controller: ['Footer',
+  module('footnote').
+  component('footnote', {
+    templateUrl: 'views/footnote/footnote.template.html',
+    controller: ['Footnote',
       function HomeController(Footer) {
           
       }
