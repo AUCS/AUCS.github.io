@@ -4,7 +4,7 @@ angular.
   module('aucsApp').
   config(['$locationProvider' ,'$routeProvider',
     function config($locationProvider, $routeProvider) {
-      //$locationProvider.hashPrefix('!');
+      $locationProvider.html5mode(true);
 
       $routeProvider.
         when('/phones', {
