@@ -1,4 +1,4 @@
 'use strict';
 
 // Define the `navigation` module
-angular.module('navigation', ['ui.bootstrap']);
+angular.module('navigation', ['ngAnimate', 'ui.bootstrap']);
