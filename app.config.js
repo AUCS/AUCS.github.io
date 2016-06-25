@@ -18,4 +18,5 @@ angular.
   ]).
   config(function($facebookProvider) {
     $facebookProvider.setAppId('testing');
+    $facebookProvider.setPermissions("email");
   });
