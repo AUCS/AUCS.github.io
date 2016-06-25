@@ -1,4 +1,4 @@
 'use strict';
 
-// Define the `phoneList` module
-angular.module('home', []);
+// Define the `home` module
+angular.module('home');

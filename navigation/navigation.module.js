@@ -1,4 +1,4 @@
 'use strict';
 
 // Define the `phoneList` module
-angular.module('navigation', []);
+angular.module('navigation');

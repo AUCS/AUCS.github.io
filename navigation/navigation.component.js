@@ -5,9 +5,9 @@ angular.
 	module('navigation').
 	component('navigation', {
 		templateUrl: 'navigation/navigation.template.html',
-		controller: ['$scope',
-			function NavigationController($scope) {
-				$scope.maybeworking = true;
+		controller: ['Navigation',
+			function NavigationController(Navigation) {
+				this.maybeworking = true;
 			}
 		]
 	});
