@@ -15,4 +15,7 @@ angular.
         }).
         otherwise('/home');
     }
-  ]);
+  ]).
+  config(function($facebookProvider) {
+    $facebookProvider.setAppId('testing');
+  });
