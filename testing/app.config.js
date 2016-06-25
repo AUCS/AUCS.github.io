@@ -4,7 +4,7 @@ angular.
   module('aucsApp').
   config(['$locationProvider' ,'$routeProvider',
     function config($locationProvider, $routeProvider) {
-      $locationProvider.html5mode(true);
+      $locationProvider.html5Mode(true);
 
       $routeProvider.
         when('/phones', {
