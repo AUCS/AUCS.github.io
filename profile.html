@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>AUCS - Profile</title>
+
+    <!-- Bootstrap core CSS --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+ 
+    <!-- Custom styles for this template -->
+    <link href="main.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="fb-root"></div>
+    <script>
+      // This is called with the results from from FB.getLoginStatus().
+      function statusChangeCallback(response) {
+        $("#edits_form").submit(function () {
+          $(".loading_spinner").show();
+          var formData = $(this).serialize();
+          if (formData === "email=&studentId=") {
+            $(".loading_spinner").hide();
+            return false;
+          }
+          $.ajax({
+            url: 'http://aucsmembershiphandler.azurewebsites.net/api/ProfileEdits',
+            type: 'POST',
+            headers: {
+              "Token": response.authResponse.accessToken
+            },
+            data: formData,
+            success: function( data ) {
+              $(".loading_spinner").hide();
+              $("#form_api_response").html(data); 
+              $('#response_modal').modal('show');
+            },
+            error: function( xhr, err ) {
+              $(".loading_spinner").hide();
+              $("#form_api_response").html(xhr.responseJSON);
+              $('#response_modal').modal('show');
+            }
+          }); 
+          return false;
+        });
+        $('.refresh_website_cache').click( function(){
+          $(".loading_spinner").show();
+          $.ajax({
+            url: 'http://localhost:49863/api/RefreshWebsiteCache',
+            type: 'GET',
+            headers: {
+              "Token": response.authResponse.accessToken
+            },
+            success: function( data ) {
+              $(".loading_spinner").hide();
+              $("#form_api_response").html(data); 
+              $('#response_modal').modal('show');
+            },
+            error: function( xhr, err ) {
+              $(".loading_spinner").hide();
+              $("#form_api_response").html(xhr.responseJSON);
+              $('#response_modal').modal('show');
+            }
+          });
+        });
+        if (response.status === 'connected') {
+          var url = 'http://aucsmembershiphandler.azurewebsites.net/api/Profile/';
+          $.ajax({
+            url: url,
+            type: 'POST',
+            headers: {
+              "Token": response.authResponse.accessToken
+            },
+            success: function( data ) {
+                $('#details').show();
+                $('.loading_spinner').hide();
+                
+                $("#name").html(data.Name);
+                if (data.MembershipType === "Standard") {
+                  $('#membership_standard').show();
+                } else if (data.MembershipType === "Premium") {
+                  $('#membership_premium').show();
+                } else if (data.MembershipType === "Lifetime") {
+                  $('#membership_lifetime').show();
+                } else {
+                  $('#membership_pending').show();                  
+                }
+                if (data.CommitteeTitle === "General Member") {
+                  $('#committee_general').show();
+                } else if (data.CommitteeTitle != null) {
+                  $("#committee_title_value").html(data.CommitteeTitle);
+                  $('#committee_title').show();
+                } else {
+                  $('#committee_none').show();                  
+                }
+                if (data.StudentId != null) {
+                  $("#student_id_value").html(data.StudentId);
+                  $('#student_id_yes').show();
+                } else {
+                  $('#student_id_no').show();                  
+                }
+                if (data.EmailAddress != null) {
+                  $("#newsletter_value").html(data.EmailAddress);
+                  $('#newsletter_yes').show();                  
+                } else {
+                  $('#newsletter_no').show();                  
+                }  
+            },
+            error: function( xhr, err ) {
+              if (xhr.responseJSON != null) {
+                $("#form_api_response").html(xhr.responseJSON.Message);
+                $('#response_modal').modal('show');
+              }
+              else {
+                $("#form_api_response").html(err);
+                $('#response_modal').modal('show');
+              }
+            }
+          });
+        } else {
+          window.location.replace("login.html");
+        }
+      }
+      // This function is called when someone finishes with the Login
+      // Button.  See the onlogin handler attached to it in the sample
+      // code below.
+      function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
+      }
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '631831156964129',
+          cookie     : true,  // enable cookies to allow the server to access 
+                              // the session
+          xfbml      : true,  // parse social plugins on this page
+          version    : 'v2.6' // use graph api version 2.5
+        });
+
+        // Now that we've initialized the JavaScript SDK, we call 
+        // FB.getLoginStatus().  This function gets the state of the
+        // person visiting this page and can return one of three states to
+        // the callback you provide.  They can be:
+        //
+        // 1. Logged into your app ('connected')
+        // 2. Logged into Facebook, but not your app ('not_authorized')
+        // 3. Not logged into Facebook and can't tell if they are logged into
+        //    your app or not.
+        //
+        // These three cases are handled in the callback function.
+
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
+      };
+
+      // Load the SDK asynchronously
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">AUCS</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="committee.html">Committee</a></li>
+                  <!--<li><a href="#">About</a></li>-->
+                </ul>
+              </nav>
+            </div>
+          </div>
+          
+          <div class="spacer"></div>
+          
+          <div class="inner cover form-wrapper">
+            <h2>Profile</h2>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div id="details">
+                  <p>Hi <span id="name"></span>!</p>
+                  <div id="membership_pending">
+                    <p class="lead">Your membership status is pending.</p>
+                    <p>Unfortunately due to AUU regulations at least 50% of our members must be Adelaide University students. If you are a student please provide your Student Id below to confirm your membership. If you are not a student hang in there, your membership will be confirmed when a place becomes available.</p>
+                    <p class="lead"><a class="show_student_id_edit" href="#">I have a Student Id</a>.</p>
+                  </div>
+                  <div id="membership_standard">
+                    <p>You have a standard membership with the AUCS.</p>
+                  </div>
+                  <div id="membership_premium">
+                    <p>You have a standard membership with the AUCS.</p>
+                  </div>
+                  <div id="membership_lifetime">
+                    <p>You have a standard membership with the AUCS.</p>
+                  </div>
+                  <div id="committee_none">
+                    <p>You are not on the committee. If there are votes opens to non-committee members you will be able to vote here.</p>
+                  </div>
+                  <div id="committee_general">
+                    <p>You are a General Member on the commitee. You are required to vote on things here. You can refresh the public website cache <a class="refresh_website_cache" href="#">here</a>.</p>
+                  </div>
+                  <div id="committee_title">
+                    <p>You are on the commitee as <span id="committee_title_value"></span>. You are required to vote on things here. You can refresh the public website cache <a class="refresh_website_cache" href="#">here</a>.</p>
+                  </div>
+                  <div id="student_id_no">
+                    <p>You have not provided a University of Adelaide Student Id. <a class="show_student_id_edit" href="#">Update</a>.</p>
+                  </div>
+                  <div id="student_id_yes">
+                    <p>Your student id is <span id="student_id_value"></span>. <a class="show_student_id_edit" href="#">Update</a>.</p>
+                  </div>
+                  <div id="newsletter_no">
+                    <p>You have not subscribed to our newsletter. <a class="show_email_edit" href="#">Subscribe</a>.</p>
+                  </div>
+                  <div id="newsletter_yes">
+                    <p>We are sending our newsletter to <span id="newsletter_value"></span>. <a class="show_email_edit" href="#">Update</a>.</p>
+                  </div>
+                </div>
+                <div id="edits">
+                  <form id="edits_form">
+                    <div id="edit_email">
+                      <p>Email Address</p>
+                      <div class="form-group">
+                        <label for="Email" class="sr-only">Email Address</label>
+                        <input type="email" id="Email" name="email" class="form-control" placeholder="Email Address">
+                      </div>
+                    </div>
+                    <div id="edit_student_id">
+                      <p>Student Id</p>
+                      <div class="form-group">
+                        <label for="StudentId" class="sr-only">Student Id</label>
+                        <input type="string" id="StudentId" name="studentId" class="form-control" placeholder="a123456">
+                      </div>
+                    </div>
+                    <div id="edit_submit_button">
+                      <button type="submit" class="btn btn-block btn-large btn-primary">
+                        <span id="join_button_text">Update</span>
+                      </button>
+                    </div>
+                  </form>
+                  <p></p>
+                </div>
+                <div class="loading_spinner">
+                  <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                </div>
+              </div>
+            </div>
+            <div id="status"></div>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>&copy; 2016 Adelaide University Cheese Society</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="response_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header"></div>
+          <div class="modal-body">
+            <p id="form_api_response"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- ================================================== --> 
+    <!-- Placed at the end of the document so the pages load faster --> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
+    <script>
+      $('#details').hide();
+      $('#membership_pending').hide();
+      $('#membership_standard').hide();
+      $('#membership_premium').hide();
+      $('#membership_lifetime').hide();
+      $('#committee_none').hide();
+      $('#committee_general').hide();
+      $('#committee_title').hide();
+      $('#student_id_no').hide();
+      $('#student_id_yes').hide();
+      $('#newsletter_no').hide();
+      $('#newsletter_yes').hide();
+      
+      $('#edits').hide();
+      $("#edit_student_id").hide();
+      $("#edit_email").hide();
+      $("#edit_submit_button").hide();
+      
+      $('.show_student_id_edit').click( function(){
+        $('#edits').show();
+        $("#edit_student_id").show();
+        $("#edit_submit_button").show();
+      });
+      $('.show_email_edit').click( function(){
+        $('#edits').show();
+        $("#edit_email").show();
+        $("#edit_submit_button").show();
+      });
+    </script>
+  </body>
+</html>
