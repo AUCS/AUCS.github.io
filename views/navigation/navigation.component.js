@@ -5,9 +5,9 @@ angular.
 	module('navigation').
 	component('navigation', {
 		templateUrl: 'views/navigation/navigation.template.html',
-		controller: ['$scope',
-			function NavigationController($scope) {
-				$scope.CollapseMainNav = true;
+		controller: [
+			function NavigationController() {
+				this.CollapseMainNav = true;
 			}
 		]
 	});

@@ -5,9 +5,9 @@ angular.
   module('footnote').
   component('footnote', {
     templateUrl: 'views/footnote/footnote.template.html',
-    controller: [ '$scope', '$filter',
-      function HomeController($scope, $filter) {
-          $scope.CurrentYear = $filter('date')(new Date(), 'yyyy');
+    controller: [ '$filter',
+      function HomeController($filter) {
+          this.CurrentYear = $filter('date')(new Date(), 'yyyy');
       }
     ]
   });
