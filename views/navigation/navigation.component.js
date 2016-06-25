@@ -4,7 +4,7 @@
 angular.
 	module('navigation').
 	component('navigation', {
-		templateUrl: 'navigation/navigation.template.html',
+		templateUrl: 'views/navigation/navigation.template.html',
 		controller: ['Navigation',
 			function NavigationController(Navigation) {
 				this.maybeworking = true;

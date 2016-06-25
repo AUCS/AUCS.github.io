@@ -4,7 +4,7 @@
 angular.
   module('home').
   component('home', {
-    templateUrl: 'home/home.template.html',
+    templateUrl: 'views/home/home.template.html',
     controller: ['Home',
       function HomeController(Home) {
         this.phones = Phone.query();

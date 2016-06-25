@@ -4,7 +4,7 @@
 angular.
   module('footer').
   component('footer', {
-    templateUrl: 'footer/footer.template.html',
+    templateUrl: 'views/footer/footer.template.html',
     controller: ['Footer',
       function HomeController(Footer) {
           
