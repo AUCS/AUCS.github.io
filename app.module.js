@@ -4,6 +4,7 @@
 angular.module('aucsApp', [
   'ngAnimate',
   'ngRoute',
+  'ui.bootstrap',
   'core',
   'phoneDetail',
   'phoneList',
