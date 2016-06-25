@@ -30,57 +30,17 @@
 		<script src="core/core.module.js"></script>
 		<script src="core/core.component.js"></script>
 		<script src="core/checkmark/checkmark.filter.js"></script>
-		<script src="core/phone/phone.module.js"></script>
-		<script src="core/phone/phone.service.js"></script>
+		<script src="navigation/navigation.module.js"></script>
+		<script src="navigation/navigation.service.js"></script>
 		<script src="home/home.module.js"></script>
 		<script src="home/home.component.js"></script>
-		<script src="phone-list/phone-list.module.js"></script>
-		<script src="phone-list/phone-list.component.js"></script>
-		<script src="phone-detail/phone-detail.module.js"></script>
-		<script src="phone-detail/phone-detail.component.js"></script>
 	</head>
 	<body id="page-top" class="index">
 		
 		<!-- Navigation -->
-		<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div ng-controller="NavigationCollapseController" class="navbar-header">
-					<button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#page-top">AUCS</a>
-				</div>
+		<Navigation></Navigation>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="navbar-collapse" uib="isCollapsed">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="hidden">
-							<a href="#page-top"></a>
-						</li>
-						<li>
-							<a href="#cheeses">Cheeses</a>
-						</li>
-						<li>
-							<a href="#about">About</a>
-						</li>
-						<li>
-							<a href="#events">Events</a>
-						</li>
-						<li>
-							<a href="#login">Login</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->		
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
-
-
+		<!-- Page -->
 		<div class="view-container">
 			<div ng-view class="view-frame"></div>
 		</div>

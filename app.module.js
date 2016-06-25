@@ -5,9 +5,7 @@ angular.module('aucsApp', [
   'ngRoute',
   'ui.bootstrap',
   'ngAnimate',
-  'core',
-  'phoneDetail',
-  'phoneList',
+  'navigation',
   'home',
   'ezfb',
 ]);
