@@ -5,7 +5,7 @@ angular.
   module('core').
   component('core', {
     controller: ['$scope',
-      function NavigationSmallCollapse($scope) {
+      function NavigationCollapseController($scope) {
         $scope.isCollapsed = false;
       }
     ]
