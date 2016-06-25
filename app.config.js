@@ -4,7 +4,7 @@ angular.
   module('aucsApp').
   config(['$locationProvider' ,'$routeProvider',
     function config($locationProvider, $routeProvider) {
-      $locationProvider.hashPrefix('!');
+      //$locationProvider.hashPrefix('!');
 
       $routeProvider.
         when('/phones', {
@@ -15,6 +15,18 @@ angular.
         }).
         when('/home', {
           template: '<home></home>'
+        }).
+        when('/cheeses', {
+          template: '<cheeses></cheeses>'
+        }).
+        when('/cheeses/:cheeseId', {
+          template: '<cheese-detail></cheese-detail>'
+        }).
+        when('/about', {
+          template: '<about></about>'
+        }).
+        when('/events', {
+          template: '<events></events>'
         }).
         otherwise('/home');
     }
