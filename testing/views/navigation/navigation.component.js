@@ -5,11 +5,11 @@ angular.
 	module('navigation').
 	component('navigation', {
 		templateUrl: 'views/navigation/navigation.template.html',
-		controller: ['$scope',
-			function NavigationController($scope) {
-				$scope.NavHidden = true;
+		controller: [
+			function NavigationController() {
+				this.Hidden = true;
 				this.ToggleNav = function() {
-					$scope.NavHidden = !$scope.NavHidden;
+					this.Hidden = !this.Hidden;
 				};
 			}
 		]
