@@ -9,7 +9,7 @@ angular.
 			function NavigationController() {
 				this.Hidden = true;
 				this.ToggleNav = function() {
-					this.Hidden = !this.Hidden;
+					$ctrl.Hidden = !$ctrl.Hidden;
 				};
 			}
 		]
