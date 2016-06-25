@@ -7,6 +7,6 @@ angular.module('aucsApp', [
   'ngAnimate',
   'navigation',
   'home',
-  'footer',
+  'footnote',
   'ezfb',
 ]);
