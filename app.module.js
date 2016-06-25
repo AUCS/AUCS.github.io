@@ -2,9 +2,9 @@
 
 // Define the `aucsApp` module
 angular.module('aucsApp', [
-  'ngAnimate',
   'ngRoute',
   'ui.bootstrap',
+  'ngAnimate',
   'core',
   'phoneDetail',
   'phoneList',
