@@ -24,15 +24,16 @@ angular.
 					})
 				};
 
-				/**
-				 * Subscribe to 'auth.statusChange' event to response to login/logout
-				 */
-				ezfb.Event.subscribe('auth.statusChange', function (statusRes) {
-					this.loginStatus = statusRes;
+				this.LoginStatusChanged = function(statusRes) {
+					this.LoginStatus = statusRes;
 
 					updateMe();
 					updateApiCall();
-				});
+				}
+				/**
+				 * Subscribe to 'auth.statusChange' event to response to login/logout
+				 */
+				ezfb.Event.subscribe('auth.statusChange', this.LoginStatusChanged(statusRes));
 
 				this.Login = function () {
 					/**
@@ -100,7 +101,7 @@ angular.
 					.then(function (res) {
 						// res: FB.getLoginStatus response
 						// https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus
-						this.loginStatus = res;
+						this.LoginStatus = res;
 					});
 				}
 
