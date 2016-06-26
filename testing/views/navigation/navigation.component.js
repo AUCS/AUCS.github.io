@@ -14,7 +14,8 @@ angular.
 				this.LoginLabel = 'Login';
 				var LoginStatus = null;
 				var User = null;
-				this.Cancel = null;
+				var Cancel = null;
+				this.Cancel = Cancel;
 				this.OpenAccount = function() {
 					if (LoginStatus === null) {
 						var modalInstance = $uibModal.open({
