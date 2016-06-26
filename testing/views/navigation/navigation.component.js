@@ -5,8 +5,8 @@ angular.
 	module('navigation').
 	component('navigation', {
 		templateUrl: 'views/navigation/navigation.template.html',
-		controller: [ 'ezfb', '$uibModal', '$scope',
-			function NavigationController(ezfb, $uibModal, $scope) {
+		controller: [ 'ezfb', '$uibModal', '$scope', '$location',
+			function NavigationController(ezfb, $uibModal, $scope, $location) {
 				$scope.Hidden = true;
 				$scope.ToggleNav = function() {
 					$scope.Hidden = !$scope.Hidden;
@@ -16,7 +16,7 @@ angular.
 				var User = null;
 				var modalInstance = null;
 				$scope.OpenAccount = function() {
-					if (LoginStatus === null) {
+					if (User === null) {
 						modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
 							scope: $scope,
