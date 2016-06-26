@@ -12,7 +12,7 @@ angular.
 					this.Hidden = !this.Hidden;
 				};
 				this.LoginLabel = 'Login';
-				this.LoginStatus = null;
+				LoginStatus = null;
 				this.OpenAccount = function() {
 					if (LoginStatus === null) {
 						var modalInstance = $uibModal.open({
