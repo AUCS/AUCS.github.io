@@ -34,9 +34,10 @@ angular.
 				/**
 				 * Subscribe to 'auth.statusChange' event to response to login/logout
 				 */
-				ezfb.Event.subscribe('auth.statusChange', function(statusRes) {
+				ezfb.Event.subscribe('auth.statusChange', 'this', function(statusRes, parent) {
 					LoginStatus = statusRes;
 					updateMe();
+					parent.LoginLabel = User.name;
 				});
 
 				this.Login = function () {
