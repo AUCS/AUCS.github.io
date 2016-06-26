@@ -36,11 +36,6 @@ angular.
 				ezfb.Event.subscribe('auth.statusChange', function(statusRes) {
 					LoginStatus = statusRes;
 					updateMe();
-					if (User === null) {
-						$scope.LoginLabel = 'Login';
-					} else {
-						$scope.LoginLabel = User.name;
-					}
 				});
 
 				$scope.Login = function () {
@@ -48,12 +43,7 @@ angular.
 					 * Calling FB.login with required permissions specified
 					 * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.6
 					 */
-					ezfb.login(function (res) {
-						// Executes 1
-					}, {scope: 'email'})
-					.then(function (res) {
-						// Executes 2
-					})
+    				ezfb.login(null, {scope: ''});
 				};
   
 				/**
@@ -70,6 +60,11 @@ angular.
 						// me: FB.api('/me') response
 						// https://developers.facebook.com/docs/javascript/reference/FB.api
 						User = me;
+						if (User === null) {
+							$scope.LoginLabel = 'Login';
+						} else {
+							$scope.LoginLabel = User.name;
+						}
 					});
 				}
   
