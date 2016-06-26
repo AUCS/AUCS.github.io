@@ -5,8 +5,8 @@ angular.
 	module('navigation').
 	component('navigation', {
 		templateUrl: 'views/navigation/navigation.template.html',
-		controller: [
-			function NavigationController() {
+		controller: [ 'ezfb',
+			function NavigationController(ezfb) {
 				this.Hidden = true;
 				this.ToggleNav = function() {
 					this.Hidden = !this.Hidden;
