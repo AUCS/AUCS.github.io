@@ -44,40 +44,12 @@ angular.
 					 * Calling FB.login with required permissions specified
 					 * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.0
 					 */
-					ezfb.login(null, {scope: 'email'});
-
-					/**
-					 * In the case you need to use the callback
-					 *
-					 * ezfb.login(function (res) {
-					 *   // Executes 1
-					 * }, {scope: 'email,user_likes'})
-					 * .then(function (res) {
-					 *   // Executes 2
-					 * })
-					 *
-					 * Note that the `res` result is shared.
-					 * Changing the `res` in 1 will also change the one in 2
-					 */
-				};
-
-				$scope.Logout = function () {
-					/**
-					 * Calling FB.logout
-					 * https://developers.facebook.com/docs/reference/javascript/FB.logout
-					 */
-					ezfb.logout();
-
-					/**
-					 * In the case you need to use the callback
-					 *
-					 * ezfb.logout(function (res) {
-					 *   // Executes 1
-					 * })
-					 * .then(function (res) {
-					 *   // Executes 2
-					 * })
-					 */
+					ezfb.login(function (res) {
+						// Executes 1
+					}, {scope: 'email'})
+					.then(function (res) {
+						// Executes 2
+					})
 				};
   
 				/**
