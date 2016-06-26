@@ -19,7 +19,7 @@ angular.
 						var modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
 							controller: [ '$uibModalInstance',
-								function LoginController($uibModal) {
+								function LoginController($uibModalInstance) {
 									this.Login = Login();
 									this.Cancel = function() {
 										$uibModalInstance.dismiss('cancel');
