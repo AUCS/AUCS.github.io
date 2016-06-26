@@ -13,6 +13,7 @@ angular.
 				};
 				this.LoginLabel = 'Login';
 				var LoginStatus = null;
+				var User = null;
 				this.OpenAccount = function() {
 					if (LoginStatus === null) {
 						var modalInstance = $uibModal.open({
@@ -35,9 +36,7 @@ angular.
 				 */
 				ezfb.Event.subscribe('auth.statusChange', function(statusRes) {
 					LoginStatus = statusRes;
-					if (LoginStatus.user != null)
 					updateMe();
-					updateApiCall();
 				});
 
 				this.Login = function () {
@@ -87,14 +86,14 @@ angular.
 				function updateMe () {
 					ezfb.getLoginStatus()
 					.then(function (res) {
-					// res: FB.getLoginStatus response
-					// https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus
-					return ezfb.api('/me');
+						// res: FB.getLoginStatus response
+						// https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus
+						return ezfb.api('/me');
 					})
 					.then(function (me) {
-					// me: FB.api('/me') response
-					// https://developers.facebook.com/docs/javascript/reference/FB.api
-					this.me = me;
+						// me: FB.api('/me') response
+						// https://developers.facebook.com/docs/javascript/reference/FB.api
+						User = me;
 					});
 				}
   
@@ -108,23 +107,6 @@ angular.
 						// https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus
 						this.LoginStatus = res;
 					});
-				}
-
-				/**
-				 * Update demostration api calls result
-				 */
-				function updateApiCall () {
-					return $q.all([
-						ezfb.api('/me'),
-						ezfb.api('/me/likes')
-					])
-					.then(function (resList) {
-						// Runs after both api calls are done
-						// resList[0]: FB.api('/me') response
-						// resList[1]: FB.api('/me/likes') response
-						this.apiRes = resList;
-					});
-
 				}
 			}
 		]
