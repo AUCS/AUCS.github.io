@@ -33,7 +33,7 @@ angular.
 				/**
 				 * Subscribe to 'auth.statusChange' event to response to login/logout
 				 */
-				ezfb.Event.subscribe('auth.statusChange', 'this', function(statusRes, parent) {
+				ezfb.Event.subscribe('auth.statusChange', function(statusRes) {
 					LoginStatus = statusRes;
 					updateMe();
 					parent.LoginLabel = User.name;
@@ -42,7 +42,7 @@ angular.
 				$scope.Login = function () {
 					/**
 					 * Calling FB.login with required permissions specified
-					 * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.0
+					 * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.6
 					 */
 					ezfb.login(function (res) {
 						// Executes 1
