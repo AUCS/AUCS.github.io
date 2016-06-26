@@ -5,8 +5,8 @@ angular.
 	module('navigation').
 	component('navigation', {
 		templateUrl: 'views/navigation/navigation.template.html',
-		controller: [ 'ezfb', '$uibModal','$uibModalInstance',
-			function NavigationController(ezfb, $uibModal, $uibModalInstance) {
+		controller: [ 'ezfb', '$uibModal',
+			function NavigationController(ezfb, $uibModal) {
 				this.Hidden = true;
 				this.ToggleNav = function() {
 					this.Hidden = !this.Hidden;
@@ -18,11 +18,11 @@ angular.
 					if (LoginStatus === null) {
 						var modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
-							controller: [ '$uibModalInstance',
-								function LoginController($uibModalInstance) {
+							controller: [
+								function LoginController() {
 									this.Login = Login();
 									this.Cancel = function() {
-										$uibModalInstance.dismiss('cancel');
+										modalInstance.dismiss('cancel');
 									};
 								}
 							]
