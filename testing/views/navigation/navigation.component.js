@@ -112,7 +112,7 @@ angular.
 angular.
 	module('navigation').
 	controller([ '$uibModalInstance',
-		function LoginController($uibModalInstance) {
+		function LoginModalController($uibModalInstance) {
 			this.Cancel = function() {
 				$uibModalInstance.dismiss('cancel');
 			};
