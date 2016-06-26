@@ -19,7 +19,7 @@ angular.
 					if (LoginStatus === null) {
 						modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
-							scope: $ctrl,
+							scope: $scope,
 						});
 					} else {
 						$location.path('/account')
