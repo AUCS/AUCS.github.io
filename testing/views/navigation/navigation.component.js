@@ -43,7 +43,8 @@ angular.
 					 * Calling FB.login with required permissions specified
 					 * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.6
 					 */
-    				ezfb.login(null, {scope: ''});
+    				ezfb.login(null, {scope: ''})
+					.then($location.path('/account'));
 				};
   
 				/**
