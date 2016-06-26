@@ -16,7 +16,7 @@ angular.
 				var User = null;
 				var modalInstance = null;
 				$scope.OpenAccount = function() {
-					if (User === null) {
+					if (User === null || User.error != null) {
 						modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
 							scope: $scope,
