@@ -5,8 +5,8 @@ angular.
 	module('navigation').
 	component('navigation', {
 		templateUrl: 'views/navigation/navigation.template.html',
-		controller: [ 'ezfb',
-			function NavigationController(ezfb) {
+		controller: [ 'ezfb', '$uibModal',
+			function NavigationController(ezfb, $uibModal) {
 				this.Hidden = true;
 				this.ToggleNav = function() {
 					this.Hidden = !this.Hidden;
@@ -15,8 +15,8 @@ angular.
 				this.OpenLogin = function() {
 					var modalInstance = $uibModal.open({
 						templateUrl: 'views/navigation/login.template.html',
-						controller: [							
-							function LoginController() {
+						controller: [ '$uibModal',
+							function LoginController($uibModal) {
 								updateMe();
 
 								updateLoginStatus().then(updateApiCall);
