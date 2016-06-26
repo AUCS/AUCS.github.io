@@ -33,7 +33,7 @@ angular.
 				/**
 				 * Subscribe to 'auth.statusChange' event to response to login/logout
 				 */
-				ezfb.Event.subscribe('auth.statusChange', function(statusRes) {
+				ezfb.Event.subscribe('auth.statusChange', 'this', function(statusRes) {
 					LoginStatus = statusRes;
 					if (LoginStatus.user != null)
 					updateMe();
