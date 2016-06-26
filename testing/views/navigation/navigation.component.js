@@ -11,6 +11,7 @@ angular.
 				this.ToggleNav = function() {
 					this.Hidden = !this.Hidden;
 				};
+				this.LoginStatus = 'null';
 				this.OpenLogin = function() {
 					var modalInstance = $uibModal.open({
 						templateUrl: 'views/navigation/login.template.html',
@@ -24,16 +25,15 @@ angular.
 					})
 				};
 
-				this.LoginStatusChanged = function(statusRes) {
-					this.LoginStatus = statusRes;
-
-					updateMe();
-					updateApiCall();
-				}
 				/**
 				 * Subscribe to 'auth.statusChange' event to response to login/logout
 				 */
-				ezfb.Event.subscribe('auth.statusChange', this.LoginStatusChanged);
+				ezfb.Event.subscribe('auth.statusChange', 'this', function(statusRes, parent) {
+					LoginStatus = statusRes;
+
+					updateMe();
+					updateApiCall();
+				});
 
 				this.Login = function () {
 					/**
