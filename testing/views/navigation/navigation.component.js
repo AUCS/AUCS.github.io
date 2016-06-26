@@ -14,17 +14,20 @@ angular.
 				this.LoginLabel = 'Login';
 				var LoginStatus = null;
 				var User = null;
-				var Cancel = null;
-				this.Cancel
+				var modalInstance = null;
 				this.OpenAccount = function() {
 					if (LoginStatus === null) {
-						var modalInstance = $uibModal.open({
+						modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
 							controller: 'LoginModalController'
 						});
 					} else {
 						$location.path('/account')
 					}
+				};
+
+				this.Cancel = function() {
+					modalInstance.dismiss('cancel');
 				};
 
 				/**
@@ -58,7 +61,7 @@ angular.
 					 */
 				};
 
-				var Logout = function () {
+				this.Logout = function () {
 					/**
 					 * Calling FB.logout
 					 * https://developers.facebook.com/docs/reference/javascript/FB.logout
