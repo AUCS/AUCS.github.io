@@ -5,17 +5,17 @@ angular.
 	module('navigation').
 	component('navigation', {
 		templateUrl: 'views/navigation/navigation.template.html',
-		controller: [ 'ezfb', '$uibModal',
-			function NavigationController(ezfb, $uibModal) {
-				this.Hidden = true;
-				this.ToggleNav = function() {
-					this.Hidden = !this.Hidden;
+		controller: [ 'ezfb', '$uibModal', '$scope',
+			function NavigationController(ezfb, $uibModal, $scope) {
+				$scope.Hidden = true;
+				$scope.ToggleNav = function() {
+					$scope.Hidden = !$scope.Hidden;
 				};
-				this.LoginLabel = 'Login';
+				$scope.LoginLabel = 'Login';
 				var LoginStatus = null;
 				var User = null;
 				var modalInstance = null;
-				this.OpenAccount = function() {
+				$scope.OpenAccount = function() {
 					if (LoginStatus === null) {
 						modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
@@ -26,7 +26,7 @@ angular.
 					}
 				};
 
-				this.DismissModal = function() {
+				$scope.DismissModal = function() {
 					modalInstance.dismiss('cancel');
 				};
 
@@ -39,7 +39,7 @@ angular.
 					parent.LoginLabel = User.name;
 				});
 
-				this.Login = function () {
+				$scope.Login = function () {
 					/**
 					 * Calling FB.login with required permissions specified
 					 * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.0
@@ -61,7 +61,7 @@ angular.
 					 */
 				};
 
-				this.Logout = function () {
+				$scope.Logout = function () {
 					/**
 					 * Calling FB.logout
 					 * https://developers.facebook.com/docs/reference/javascript/FB.logout
