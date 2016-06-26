@@ -29,6 +29,9 @@ angular.
         when('/events', {
           template: '<events></events>'
         }).
+        when('/account', {
+          template: '<account></account>'
+        }).
         otherwise('/home');
     }
   ]).

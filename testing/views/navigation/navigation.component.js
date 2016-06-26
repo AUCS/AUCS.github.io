@@ -11,26 +11,31 @@ angular.
 				this.ToggleNav = function() {
 					this.Hidden = !this.Hidden;
 				};
-				this.LoginStatus = 'null';
-				this.OpenLogin = function() {
-					var modalInstance = $uibModal.open({
-						templateUrl: 'views/navigation/login.template.html',
-						controller: [ '$uibModal',
-							function LoginController($uibModal) {
-								updateMe();
+				this.LoginLabel = 'Login';
+				this.LoginStatus = null;
+				this.OpenAccount = function() {
+					if (LoginStatus === null) {
+						var modalInstance = $uibModal.open({
+							templateUrl: 'LoginModal.template.html',
+							controller: [ '$uibModal',
+								function LoginController($uibModal) {
+									updateMe();
 
-								updateLoginStatus().then(updateApiCall);
-							}
-						]
-					})
+									updateLoginStatus().then(updateApiCall);
+								}
+							]
+						});
+					} else {
+						$location.path('/account')
+					}
 				};
 
 				/**
 				 * Subscribe to 'auth.statusChange' event to response to login/logout
 				 */
-				ezfb.Event.subscribe('auth.statusChange', 'this', function(statusRes, parent) {
+				ezfb.Event.subscribe('auth.statusChange', function(statusRes) {
 					LoginStatus = statusRes;
-
+					if (LoginStatus.user != null)
 					updateMe();
 					updateApiCall();
 				});
