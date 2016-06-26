@@ -74,16 +74,6 @@ angular.
 					 * })
 					 */
 				};
-
-				/**
-				 * For generating better looking JSON results
-				 */
-				var autoToJSON = ['loginStatus', 'apiRes']; 
-				angular.forEach(autoToJSON, function (varName) {
-					this.$watch(varName, function (val) {
-					this[varName + 'JSON'] = JSON.stringify(val, null, 2);
-					}, true);
-				});
   
 				/**
 				 * Update api('/me') result
