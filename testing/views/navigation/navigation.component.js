@@ -14,15 +14,15 @@ angular.
 				this.LoginLabel = 'Login';
 				var LoginStatus = null;
 				var User = null;
+				this.Cancel = null;
 				this.OpenAccount = function() {
 					if (LoginStatus === null) {
 						var modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
-							controller: [
-								function LoginController() {
-									this.Login = Login();
-									this.Cancel = function() {
-										modalInstance.dismiss('cancel');
+							controller: [ '$uibModalInstance', 'this',
+								function LoginController($uibModalInstance, parent) {
+									parent.Cancel = function() {
+										$uibModalInstance.dismiss('cancel');
 									};
 								}
 							]
@@ -41,7 +41,7 @@ angular.
 					parent.LoginLabel = User.name;
 				});
 
-				var Login = function () {
+				this.Login = function () {
 					/**
 					 * Calling FB.login with required permissions specified
 					 * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.0
