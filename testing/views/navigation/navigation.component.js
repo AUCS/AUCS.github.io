@@ -19,14 +19,14 @@ angular.
 					if (LoginStatus === null) {
 						modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
-							controller: 'LoginModalController'
+							//controller: 'LoginModalController'
 						});
 					} else {
 						$location.path('/account')
 					}
 				};
 
-				this.Cancel = function() {
+				this.DismissModal = function() {
 					modalInstance.dismiss('cancel');
 				};
 
@@ -116,7 +116,7 @@ angular.
 	module('navigation').
 	controller('LoginModalController', [ '$uibModalInstance',
 		function ($uibModalInstance) {
-			this.Cancel = function() {
+			this.DismissModal = function() {
 				$uibModalInstance.dismiss('cancel');
 			};
 		}
