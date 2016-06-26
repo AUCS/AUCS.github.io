@@ -22,7 +22,7 @@ angular.
 								function LoginController($uibModal) {
 									updateMe();
 
-									updateLoginStatus().then(updateApiCall);
+									updateLoginStatus().then();
 								}
 							]
 						});
@@ -106,7 +106,7 @@ angular.
 					.then(function (res) {
 						// res: FB.getLoginStatus response
 						// https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus
-						this.LoginStatus = res;
+						LoginStatus = res;
 					});
 				}
 			}
