@@ -28,7 +28,7 @@ angular.
 				 * Subscribe to 'auth.statusChange' event to response to login/logout
 				 */
 				ezfb.Event.subscribe('auth.statusChange', function (statusRes) {
-					$scope.loginStatus = statusRes;
+					this.loginStatus = statusRes;
 
 					updateMe();
 					updateApiCall();
@@ -80,8 +80,8 @@ angular.
 				 */
 				var autoToJSON = ['loginStatus', 'apiRes']; 
 				angular.forEach(autoToJSON, function (varName) {
-					$scope.$watch(varName, function (val) {
-					$scope[varName + 'JSON'] = JSON.stringify(val, null, 2);
+					this.$watch(varName, function (val) {
+					this[varName + 'JSON'] = JSON.stringify(val, null, 2);
 					}, true);
 				});
   
@@ -98,7 +98,7 @@ angular.
 					.then(function (me) {
 					// me: FB.api('/me') response
 					// https://developers.facebook.com/docs/javascript/reference/FB.api
-					$scope.me = me;
+					this.me = me;
 					});
 				}
   
@@ -110,7 +110,7 @@ angular.
 					.then(function (res) {
 						// res: FB.getLoginStatus response
 						// https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus
-						$scope.loginStatus = res;
+						this.loginStatus = res;
 					});
 				}
 
@@ -126,7 +126,7 @@ angular.
 						// Runs after both api calls are done
 						// resList[0]: FB.api('/me') response
 						// resList[1]: FB.api('/me/likes') response
-						$scope.apiRes = resList;
+						this.apiRes = resList;
 					});
 
 				}
