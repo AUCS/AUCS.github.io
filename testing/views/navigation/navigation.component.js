@@ -5,29 +5,28 @@ angular.
 	module('navigation').
 	component('navigation', {
 		templateUrl: 'views/navigation/navigation.template.html',
-		controller: [ 'ezfb', '$uibModal', '$scope',
-			function NavigationController(ezfb, $uibModal, $scope) {
+		controller: [ 'ezfb', '$uibModal',
+			function NavigationController(ezfb, $uibModal) {
 				this.Hidden = true;
 				this.ToggleNav = function() {
 					this.Hidden = !this.Hidden;
 				};
-				$scope.LoginLabel = 'Login';
+				this.LoginLabel = 'Login';
 				var LoginStatus = null;
 				var User = null;
 				var modalInstance = null;
-				$scope.OpenAccount = function() {
+				this.OpenAccount = function() {
 					if (LoginStatus === null) {
 						modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
-							scope: $scope,
-							//controller: 'LoginModalController'
+							scope: this,
 						});
 					} else {
 						$location.path('/account')
 					}
 				};
 
-				$scope.DismissModal = function() {
+				this.DismissModal = function() {
 					modalInstance.dismiss('cancel');
 				};
 
@@ -40,7 +39,7 @@ angular.
 					parent.LoginLabel = User.name;
 				});
 
-				$scope.Login = function () {
+				this.Login = function () {
 					/**
 					 * Calling FB.login with required permissions specified
 					 * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.0
@@ -62,7 +61,7 @@ angular.
 					 */
 				};
 
-				$scope.Logout = function () {
+				this.Logout = function () {
 					/**
 					 * Calling FB.logout
 					 * https://developers.facebook.com/docs/reference/javascript/FB.logout
@@ -112,13 +111,3 @@ angular.
 			}
 		]
 	});
-
-angular.
-	module('navigation').
-	controller('LoginModalController', [ '$uibModalInstance', '$scope',
-		function ($uibModalInstance, $scope) {
-			this.DismissModal = function() {
-				$uibModalInstance.dismiss('cancel');
-			};
-		}
-	]);

@@ -27,7 +27,7 @@
                     <a ng-href="./#!/events">Events</a>
                 </li>
                 <li>
-                    <a href ng-click="OpenAccount()">{{LoginLabel}}</a>
+                    <a href ng-click="$ctrl.OpenAccount()">{{$ctrl.LoginLabel}}</a>
                 </li>
             </ul>
         </div>
@@ -38,10 +38,10 @@
 <script type="text/ng-template" id="LoginModal.template.html">
     <div class="modal-body">
         <p>The Adelaide University Cheese Society uses Facebook to login.</p>
-        <button class="btn btn-success" type="button" ng-click="Login()">Login with Facebook</button>
+        <button class="btn btn-success" type="button" ng-click="$ctrl.Login()">Login with Facebook</button>
         <p>Don't have a Facebook account? Make one - they're free!</p>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-help" type="button" ng-click="DismissModal()">Cancel</button>
+        <button class="btn btn-help" type="button" ng-click="$ctrl.DismissModal()">Cancel</button>
     </div>
 </script>
