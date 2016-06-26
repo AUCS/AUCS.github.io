@@ -15,18 +15,12 @@ angular.
 				var LoginStatus = null;
 				var User = null;
 				var Cancel = null;
-				this.Cancel = Cancel;
+				this.Cancel
 				this.OpenAccount = function() {
 					if (LoginStatus === null) {
 						var modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
-							controller: [ '$uibModalInstance',
-								function LoginController($uibModalInstance) {
-									Cancel = function() {
-										$uibModalInstance.dismiss('cancel');
-									};
-								}
-							]
+							controller: 'LoginModalController'
 						});
 					} else {
 						$location.path('/account')
@@ -114,3 +108,13 @@ angular.
 			}
 		]
 	});
+
+angular.
+	module('navigation').
+	controller([ '$uibModalInstance',
+		function LoginController($uibModalInstance) {
+			this.Cancel = function() {
+				$uibModalInstance.dismiss('cancel');
+			};
+		}
+	]);
