@@ -5,8 +5,8 @@ angular.
 	module('navigation').
 	component('navigation', {
 		templateUrl: 'views/navigation/navigation.template.html',
-		controller: [ 'ezfb', '$uibModal',
-			function NavigationController(ezfb, $uibModal) {
+		controller: [ 'ezfb', '$uibModal','$uibModalInstance',
+			function NavigationController(ezfb, $uibModal, $uibModalInstance) {
 				this.Hidden = true;
 				this.ToggleNav = function() {
 					this.Hidden = !this.Hidden;
@@ -18,11 +18,12 @@ angular.
 					if (LoginStatus === null) {
 						var modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
-							controller: [ '$uibModal',
+							controller: [ '$uibModalInstance',
 								function LoginController($uibModal) {
-									updateMe();
-
-									updateLoginStatus().then();
+									this.Login = Login();
+									this.Cancel = function() {
+										$uibModalInstance.dismiss('cancel');
+									};
 								}
 							]
 						});
@@ -40,7 +41,7 @@ angular.
 					parent.LoginLabel = User.name;
 				});
 
-				this.Login = function () {
+				var Login = function () {
 					/**
 					 * Calling FB.login with required permissions specified
 					 * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.0
@@ -62,7 +63,7 @@ angular.
 					 */
 				};
 
-				this.Logout = function () {
+				var Logout = function () {
 					/**
 					 * Calling FB.logout
 					 * https://developers.facebook.com/docs/reference/javascript/FB.logout
