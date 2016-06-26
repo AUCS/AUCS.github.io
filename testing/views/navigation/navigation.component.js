@@ -60,7 +60,7 @@ angular.
 						// me: FB.api('/me') response
 						// https://developers.facebook.com/docs/javascript/reference/FB.api
 						User = me;
-						if (User === null) {
+						if (User === null || User.error != null) {
 							$scope.LoginLabel = 'Login';
 						} else {
 							$scope.LoginLabel = User.name;
