@@ -44,7 +44,10 @@ angular.
 					 * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.6
 					 */
     				ezfb.login(null, {scope: ''})
-					.then($location.path('/account'));
+					.then(function() {
+						modalInstance.dismiss('cancel');
+						$location.path('/account');
+					});
 				};
   
 				/**
