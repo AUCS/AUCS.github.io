@@ -19,15 +19,11 @@ angular.
 					if (LoginStatus === null) {
 						modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
-							scope: '$ctrl',
+							controller: 'LoginModalController'
 						});
 					} else {
 						$location.path('/account')
 					}
-				};
-
-				this.DismissModal = function() {
-					modalInstance.dismiss('cancel');
 				};
 
 				/**
@@ -114,8 +110,8 @@ angular.
 
 angular.
 	module('navigation').
-	controller('LoginModalController', [ '$uibModalInstance',
-		function ($uibModalInstance) {
+	controller('LoginModalController', [ '$uibModalInstance', '$scope',
+		function ($uibModalInstance, $scope) {
 			this.DismissModal = function() {
 				$uibModalInstance.dismiss('cancel');
 			};
