@@ -6,6 +6,7 @@ angular.module('aucsApp', [
   'ngAnimate',
   'ui.bootstrap',
   'ezfb',
+  'ngAffix',
   'navigation',
   'home',
   'footnote',
