@@ -12,7 +12,7 @@ angular.
 					this.Hidden = !this.Hidden;
 				};
 				this.LoginLabel = 'Login';
-				LoginStatus = null;
+				var LoginStatus = null;
 				this.OpenAccount = function() {
 					if (LoginStatus === null) {
 						var modalInstance = $uibModal.open({
@@ -33,7 +33,7 @@ angular.
 				/**
 				 * Subscribe to 'auth.statusChange' event to response to login/logout
 				 */
-				ezfb.Event.subscribe('auth.statusChange', 'this', function(statusRes) {
+				ezfb.Event.subscribe('auth.statusChange', function(statusRes) {
 					LoginStatus = statusRes;
 					if (LoginStatus.user != null)
 					updateMe();
