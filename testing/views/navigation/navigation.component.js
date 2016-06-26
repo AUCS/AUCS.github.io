@@ -111,8 +111,8 @@ angular.
 
 angular.
 	module('navigation').
-	controller([ '$uibModalInstance',
-		function LoginModalController($uibModalInstance) {
+	controller('LoginModalController', [ '$uibModalInstance',
+		function ($uibModalInstance) {
 			this.Cancel = function() {
 				$uibModalInstance.dismiss('cancel');
 			};
