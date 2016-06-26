@@ -36,7 +36,11 @@ angular.
 				ezfb.Event.subscribe('auth.statusChange', function(statusRes) {
 					LoginStatus = statusRes;
 					updateMe();
-					parent.LoginLabel = User.name;
+					if (User === null) {
+						$scope.LoginLabel = 'Login';
+					} else {
+						$scope.LoginLabel = User.name;
+					}
 				});
 
 				$scope.Login = function () {
