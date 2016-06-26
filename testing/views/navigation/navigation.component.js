@@ -19,9 +19,9 @@ angular.
 					if (LoginStatus === null) {
 						var modalInstance = $uibModal.open({
 							templateUrl: 'LoginModal.template.html',
-							controller: [ '$uibModalInstance', 'this',
-								function LoginController($uibModalInstance, parent) {
-									parent.Cancel = function() {
+							controller: [ '$uibModalInstance',
+								function LoginController($uibModalInstance) {
+									Cancel = function() {
 										$uibModalInstance.dismiss('cancel');
 									};
 								}
