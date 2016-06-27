@@ -202,6 +202,19 @@ fieldset[disabled] .btn-xl.active {
   color: white;
   background-color: #fec503;
 }
+.collapse.am-collapse {
+  animation-duration: .3s;
+  animation-timing-function: ease;
+  animation-fill-mode: backwards;
+  overflow: hidden;
+}
+.collapse.am-collapse > .in-remove {
+  animation-name: collapse;
+  display: block;
+}
+.collapse.am-collapse > .in-remove > .in-add {
+  animation-name: expand;
+}
 @media (min-width: 768px) {
   .navbar-default {
     background-color: transparent;
