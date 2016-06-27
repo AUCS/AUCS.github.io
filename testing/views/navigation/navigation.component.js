@@ -46,7 +46,7 @@ angular.
 							modalInstance.hide();
 							$location.path('/account');
 						} else {
-							//display error inline in modal
+							$scope.LoginError = "Something went wrong! Try again.";
 						}
 					});
 				};
