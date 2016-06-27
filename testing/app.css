@@ -207,13 +207,13 @@ fieldset[disabled] .btn-xl.active {
   animation-timing-function: ease;
   animation-fill-mode: backwards;
   overflow: hidden;
-  &.in-remove {
-    animation-name: collapse;
-    display: block;
-  }
-  &.in-add {
-    animation-name: expand;
-  }
+}
+.collapse.am-collapse.in-remove {
+  animation-name: collapse;
+  display: block;
+}
+.collapse.am-collapse.in-add {
+  animation-name: expand;
 }
 @media (min-width: 768px) {
   .navbar-default {
