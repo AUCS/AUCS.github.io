@@ -16,7 +16,7 @@ angular.
 				var User = null;
 				var modalInstance = $modal({
 					scope: $scope,
-					template: 'LoginModal.template.html',
+					templateUrl: 'LoginModal.template.html',
 					show: false
 				});
 				$scope.OpenAccount = function() {
