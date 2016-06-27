@@ -42,8 +42,12 @@ angular.
 					 */
     				ezfb.login(null, {scope: ''})
 					.then(function(res) {
-						modalInstance.hide();
-						$location.path('/account');
+						if (res.status === 'authorized') {
+							modalInstance.hide();
+							$location.path('/account');
+						} else {
+							//display error inline in modal
+						}
 					});
 				};
   
