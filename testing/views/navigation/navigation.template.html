@@ -47,13 +47,21 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-12 text-center">
-                            <p class="strong">The Adelaide University Cheese Society uses Facebook to login.</p>
-                            <p>This means we don't have to worry about storing sensitive login information on our servers, which is useful because they aren't anything special on a non-for-profit budget. It also provides you with the added benefit of not having to remember another pesky username and password combination.</p>
+                            <p>The Adelaide University Cheese Society uses Facebook to login.</p>
+                            <p class="small">This means we don't have to worry about storing sensitive login information on our servers, which is useful because they aren't anything special on a non-for-profit budget. It also provides you with the added benefit of not having to remember another pesky username and password combination.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
                             <button class="btn btn-success" type="button" ng-click="Login()">Login with Facebook</button>
-                            <div class="alert alert-danger" role="alert">
-                                {{LoginError}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="alert alert-danger {{LoginError}}" role="alert">
+                                {{LoginErrorContent}}
                             </div>
-                            <p>Don't have a Facebook account? <a href="http://www.facebook.com/r.php">Make one</a> - they're free!</p>
+                            <p class="small">Don't have a Facebook account? <a href="http://www.facebook.com/r.php">Make one</a> - they're free!</p>
                         </div>
                     </div>
                 </div>

@@ -19,6 +19,7 @@ angular.
 					templateUrl: 'LoginModal.template.html',
 					show: false
 				});
+				$scope.LoginError = 'hidden';
 				$scope.OpenAccount = function() {
 					if (User === null || User.error != null) {
 						modalInstance.$promise.then(modalInstance.show);
@@ -46,7 +47,8 @@ angular.
 							modalInstance.hide();
 							$location.path('/account');
 						} else {
-							$scope.LoginError = "Something went wrong! Try again.";
+							$scope.LoginError = 'show';
+							$scope.LoginErrorContent = 'Something went wrong! Please try again.';
 						}
 					});
 				};
