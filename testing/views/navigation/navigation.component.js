@@ -41,7 +41,7 @@ angular.
 					 * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.6
 					 */
     				ezfb.login(null, {scope: ''})
-					.then(function() {
+					.then(function(res) {
 						modalInstance.hide();
 						$location.path('/account');
 					});
