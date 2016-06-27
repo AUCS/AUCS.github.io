@@ -4,7 +4,7 @@
 angular.module('aucsApp', [
   'ngRoute',
   'ngAnimate',
-  'ui.bootstrap',
+  'mgcrea.ngStrap',
   'ezfb',
   'navigation',
   'home',

@@ -27,7 +27,7 @@
                     <a ng-href="./#!/events">Events</a>
                 </li>
                 <li>
-                    <a href ng-click="OpenAccount()">{{LoginLabel}}</a>
+                    <a href bs-modal="modalInstance" data-template-url="LoginModal.template.html">{{LoginLabel}}</a>
                 </li>
             </ul>
         </div>
@@ -42,6 +42,6 @@
         <p>Don't have a Facebook account? Make one - they're free!</p>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-help" type="button" ng-click="DismissModal()">Cancel</button>
+        <button class="btn btn-help" type="button" ng-click="modalInstance.hide()">Cancel</button>
     </div>
 </script>

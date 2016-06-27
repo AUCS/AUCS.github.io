@@ -5,8 +5,8 @@ angular.
 	module('navigation').
 	component('navigation', {
 		templateUrl: 'views/navigation/navigation.template.html',
-		controller: [ 'ezfb', '$uibModal', '$scope', '$location',
-			function NavigationController(ezfb, $uibModal, $scope, $location) {
+		controller: [ 'ezfb', '$modal', '$scope', '$location',
+			function NavigationController(ezfb, $modal, $scope, $location) {
 				$scope.Hidden = true;
 				$scope.ToggleNav = function() {
 					$scope.Hidden = !$scope.Hidden;
@@ -14,20 +14,17 @@ angular.
 				$scope.LoginLabel = 'Login';
 				var LoginStatus = null;
 				var User = null;
-				var modalInstance = null;
+				var modalInstance = $modal({
+					scope: $scope,
+					template: 'LoginModal.template.html',
+					show: false
+				});
 				$scope.OpenAccount = function() {
 					if (User === null || User.error != null) {
-						modalInstance = $uibModal.open({
-							templateUrl: 'LoginModal.template.html',
-							scope: $scope,
-						});
+						modalInstance.$promise.then(modalInstance.show);
 					} else {
 						$location.path('/account')
 					}
-				};
-
-				$scope.DismissModal = function() {
-					modalInstance.dismiss('cancel');
 				};
 
 				/**
@@ -45,7 +42,7 @@ angular.
 					 */
     				ezfb.login(null, {scope: ''})
 					.then(function() {
-						modalInstance.dismiss('cancel');
+						modalInstance.hide();
 						$location.path('/account');
 					});
 				};

@@ -1,4 +1,4 @@
 'use strict';
 
 // Define the `navigation` module
-angular.module('navigation', ['ngAnimate', 'ui.bootstrap', 'ezfb']);
+angular.module('navigation', ['ngAnimate', 'mgcrea.ngStrap', 'ezfb']);
