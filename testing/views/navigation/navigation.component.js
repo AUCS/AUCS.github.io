@@ -42,7 +42,7 @@ angular.
 					 */
     				ezfb.login(null, {scope: ''})
 					.then(function(res) {
-						if (res.status === 'authorized') {
+						if (res.authResponse != null) {
 							modalInstance.hide();
 							$location.path('/account');
 						} else {
