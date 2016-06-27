@@ -203,7 +203,7 @@ fieldset[disabled] .btn-xl.active {
   background-color: #fec503;
 }
 .collapse.am-collapse {
-  animation-duration: .3s;
+  animation-duration: .5s;
   animation-timing-function: ease;
   animation-fill-mode: backwards;
   overflow: hidden;
