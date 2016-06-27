@@ -27,7 +27,7 @@
                     <a ng-href="./#!/events">Events</a>
                 </li>
                 <li>
-                    <a href bs-modal="modalInstance" data-template-url="LoginModal.template.html">{{LoginLabel}}</a>
+                    <a href ng-click="OpenAccount()">{{LoginLabel}}</a>
                 </li>
             </ul>
         </div>
@@ -36,12 +36,23 @@
     <!-- /.container-fluid -->
 </nav>
 <script type="text/ng-template" id="LoginModal.template.html">
-    <div class="modal-body">
-        <p>The Adelaide University Cheese Society uses Facebook to login.</p>
-        <button class="btn btn-success" type="button" ng-click="Login()">Login with Facebook</button>
-        <p>Don't have a Facebook account? Make one - they're free!</p>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-help" type="button" ng-click="modalInstance.hide()">Cancel</button>
+    <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-label="Close" ng-click="$hide()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" ng-bind="content">
+                    <p>The Adelaide University Cheese Society uses Facebook to login.</p>
+                    <button class="btn btn-success" type="button" ng-click="Login()">Login with Facebook</button>
+                    <p>Don't have a Facebook account? Make one - they're free!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 </script>
