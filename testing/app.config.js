@@ -42,11 +42,4 @@ angular.
         version: 'v2.6'
       })
     }
-  ]).
-  config(['$scope',
-    function($scope) {
-      $scope.$on('$viewContentLoaded', function(){
-        $('input.rating').rating();
-      });
-    }
   ]);
