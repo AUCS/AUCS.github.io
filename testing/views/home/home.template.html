@@ -24,8 +24,7 @@
                 </span>
                 <h4 class="service-heading">{{review.cheese}}</h4>
                 <h3 class="service-heading">
-                    <span class="glyphicon glyphicon-star" aria-hidden="true" ng-repeat="star in review.stars|filter:{full:true}"></span>
-                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true" ng-repeat="star in review.stars|filter:{empty:true}"></span>
+                    <input type="hidden" class="rating" value="{{review.rating}}" data-readonly/>
                 </h3>
                 <p class="text-muted">{{review.description}}<small> - {{review.owner}}</small></p>
             </div>

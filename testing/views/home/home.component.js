@@ -5,13 +5,13 @@ angular.
   module('home').
   component('home', {
     templateUrl: 'views/home/home.template.html',
-    controller: ['$scope', 'Cache', 'Starify',
-      function HomeController($scope, Cache, Starify) {
+    controller: ['$scope', 'Cache',
+      function HomeController($scope, Cache) {
         var ctrl = this;
         Cache.get({
           cache: 'latest-reviews'
         }, function(data) {
-          ctrl.LatestReviews = Starify(data.reviews);
+          ctrl.LatestReviews = data.reviews;
         });
       }]
   });
