@@ -23,9 +23,9 @@
                     <i class="fa fa-circle fa-stack-2x text-primary"></i>
                 </span>
                 <h4 class="service-heading">{{review.cheese}}</h4>
-                <h3 class="service-heading">
-                    <span type="hidden" class="rating" value="{{review.rating}}" data-readonly/></span>
-                </h3>
+                <div class="service-heading">
+                    <input type="hidden" class="rating" value="{{review.rating}}" data-readonly/>
+                </div>
                 <p class="text-muted">{{review.description}}<small> - {{review.owner}}</small></p>
             </div>
         </div>

@@ -239,6 +239,6 @@
   };
 
   $(function () {
-    $('span.rating').rating();
+    $('input.rating').rating();
   });
 }(jQuery));
