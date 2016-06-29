@@ -5,9 +5,10 @@ angular.
   module('home').
   component('home', {
     templateUrl: 'views/home/home.template.html',
-    controller: ['$scope',
-      function HomeController($scope) {
-        
-      }
-    ]
+    controller: ['$scope', 'Cache',
+      function HomeController($scope, Cache) {
+        this.LatestReviews = Cache.get({
+          data: 'latest-reviews'
+        }).reviews;
+      }]
   });
