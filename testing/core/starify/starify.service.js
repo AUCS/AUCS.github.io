@@ -1,7 +1,7 @@
 angular.
   module('core.starify').
-  factory('Starify', [
-    function(reviews) {
+  factory('Starify', [ function() {
+    return function(reviews) {
       for (i1 = 0; i1 < reviews.length(); i1+=1) {
         reviews[i].stars = [];
         for (i2 = 0; i2 < 5; i2+=1) {
@@ -12,5 +12,6 @@ angular.
           });
         }
       }
+      return reviews;
     }
-  ]);
+  }]);
