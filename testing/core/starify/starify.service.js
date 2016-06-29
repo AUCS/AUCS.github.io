@@ -1,6 +1,6 @@
 angular.
   module('core.starify').
-  factory('Cache', ['reviews',
+  factory('Starify', [
     function(reviews) {
       for (i1 = 0; i1 < reviews.length(); i1+=1) {
         reviews[i].stars = [];
