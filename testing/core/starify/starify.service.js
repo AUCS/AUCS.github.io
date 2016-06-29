@@ -2,25 +2,22 @@ angular.
   module('core.starify').
   factory('Starify', [ function() {
     return function(reviews) {
-      if ($.isArray(reviews)) {
-        for (i = 0; i < reviews.length; i+=1) {
-          reviews[i].stars = [];
-          for (j = 0; j < 5; j+=1) {
-            reviews[i].stars.push({
-              full: reviews[i].rating >= j + 1,
-              half: reviews[i].rating > j,
-              empty: reviews[i].rating <= j
-            });
-          }
-        }
-      } else {
+      var convertToStars = function(review) {
+        review.stars = [];
         for (j = 0; j < 5; j+=1) {
-          reviews.stars.push({
-            full: reviews.rating >= j + 1,
-            half: reviews.rating > j,
-            empty: reviews.rating <= j
+          review.stars.push({
+            full: review.rating >= j + 1,
+            half: review.rating > j && review.rating < j + 1,
+            empty: review.rating <= j
           });
         }
+      };
+      if ($.isArray(reviews)) {
+        for (i = 0; i < reviews.length; i+=1) {
+          convertToStars(reviews[i]);          
+        }        
+      } else {
+        convertToStars(reviews);
       }
       return reviews;
     }
