@@ -237,4 +237,8 @@
     scale: 3,
     extendSymbol: function (rate) {},
   };
+
+  $(function () {
+    $('input.rating').rating();
+  });
 }(jQuery));

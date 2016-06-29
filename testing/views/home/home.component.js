@@ -12,6 +12,9 @@ angular.
           cache: 'latest-reviews'
         }, function(data) {
           ctrl.LatestReviews = data.reviews;
+        }); 
+        $scope.$on('$viewContentLoaded', function(){          
+          $('input.rating').rating();
         });
       }]
   });
