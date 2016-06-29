@@ -24,8 +24,8 @@
                 </span>
                 <h4 class="service-heading">{{review.cheese}}</h4>
                 <h3 class="service-heading">
-                    <span class="glyphicon glyphicon-star" aria-hidden="true" ng-repeat="review.stars|filter:'full'"></span>
-                    <span class="glyphicon glyphicon-star" aria-hidden="true" ng-repeat="review.stars|filter:'empty'"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true" ng-repeat="review.stars|filter:full"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true" ng-repeat="review.stars|filter:empty"></span>
                 </h3>
                 <p class="text-muted">{{review.description}}<small> - {{review.owner}}</small></p>
             </div>
