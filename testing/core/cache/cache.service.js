@@ -5,7 +5,6 @@ angular.
       return $resource('../../data/:cache.json', {}, {
         query: {
           method: 'GET',
-          params: {cache: 'data'},
           isArray: true
         }
       });
