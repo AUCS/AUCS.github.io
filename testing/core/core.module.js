@@ -1,4 +1,4 @@
 'use strict';
 
 // Define the `core` module
-angular.module('core', ['core.cache']);
+angular.module('core', ['core.cache', 'core.rating']);
