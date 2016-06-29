@@ -8,10 +8,9 @@ angular.
     controller: ['$scope', 'Cache',
       function HomeController($scope, Cache) {
         Cache.get({
-          cache: 'latest-reviews',
-          function(data) {
-            this.LatestReviews = data.reviews;
-          }
+          cache: 'latest-reviews'
+        }, function(data) {
+          this.LatestReviews = data.reviews;
         });
       }]
   });
