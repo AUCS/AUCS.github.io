@@ -3,22 +3,22 @@ angular.
   factory('Starify', [ function() {
     return function(reviews) {
       if ($.isArray(reviews)) {
-        for (i1 = 0; i1 < reviews.length; i1+=1) {
+        for (i = 0; i < reviews.length; i+=1) {
           reviews[i].stars = [];
-          for (i2 = 0; i2 < 5; i2+=1) {
+          for (j = 0; j < 5; j+=1) {
             reviews[i].stars.push({
-              full: reviews[i].rating >= i + 1,
-              half: reviews[i].rating > i,
-              empty: reviews[i].rating <= i
+              full: reviews[i].rating >= j + 1,
+              half: reviews[i].rating > j,
+              empty: reviews[i].rating <= j
             });
           }
         }
       } else {
-        for (i2 = 0; i2 < 5; i2+=1) {
+        for (j = 0; j < 5; j+=1) {
           reviews.stars.push({
-            full: reviews.rating >= i + 1,
-            half: reviews.rating > i,
-            empty: reviews.rating <= i
+            full: reviews.rating >= j + 1,
+            half: reviews.rating > j,
+            empty: reviews.rating <= j
           });
         }
       }
