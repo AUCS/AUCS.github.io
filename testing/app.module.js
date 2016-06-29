@@ -5,9 +5,7 @@ angular.module('aucsApp', [
   'ngRoute',
   'ngAnimate',
   'mgcrea.ngStrap',
-  'ngResource',
   'ezfb',
   'navigation',
-  'home',
   'footnote',
 ]);
