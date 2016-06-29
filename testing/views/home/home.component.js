@@ -7,9 +7,11 @@ angular.
     templateUrl: 'views/home/home.template.html',
     controller: ['$scope', 'Cache',
       function HomeController($scope, Cache) {
-        var cache = Cache.get({
-          cache: 'latest-reviews'
+        Cache.get({
+          cache: 'latest-reviews',
+          function(data) {
+            this.LatestReviews = data.reviews;
+          }
         });
-        this.LatestReviews = cache.reviews;
       }]
   });
