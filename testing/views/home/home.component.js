@@ -12,6 +12,8 @@ angular.
           cache: 'latest-reviews'
         }, function(data) {
           ctrl.LatestReviews = data.reviews;
+          $('input.rating').rating();
         });
+        $('input.rating').rating();
       }]
   });
