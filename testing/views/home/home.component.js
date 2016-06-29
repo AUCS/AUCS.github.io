@@ -5,8 +5,8 @@ angular.
   module('home').
   component('home', {
     templateUrl: 'views/home/home.template.html',
-    controller: ['$scope', 'Cache',
-      function HomeController($scope, Cache) {
+    controller: ['$scope', 'Cache', 'Starify',
+      function HomeController($scope, Cache, Starify) {
         var ctrl = this;
         Cache.get({
           cache: 'latest-reviews'
