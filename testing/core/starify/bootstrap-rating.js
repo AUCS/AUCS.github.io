@@ -231,14 +231,14 @@
     filledSelected: undefined,
     empty: 'glyphicon glyphicon-star-empty',
     start: 0,
-    stop: OFFSET,
+    stop: 5,
     step: 1,
-    fractions: 1,
+    fractions: 2,
     scale: 3,
     extendSymbol: function (rate) {},
   };
 
   $(function () {
-    $('input.rating').rating();
+    $('span.rating').rating();
   });
 }(jQuery));
