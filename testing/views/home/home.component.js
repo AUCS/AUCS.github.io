@@ -11,7 +11,7 @@ angular.
         Cache.get({
           cache: 'latest-reviews'
         }, function(data) {
-          ctrl.LatestReviews = data.reviews;
+          ctrl.LatestReviews = Starify(data.reviews);
         });
       }]
   });
