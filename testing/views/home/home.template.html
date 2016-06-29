@@ -24,7 +24,7 @@
                 </span>
                 <h4 class="service-heading">{{review.cheese}}</h4>
                 <div class="service-heading">
-                    <input type="hidden" class="rating" value="{{review.rating}}" data-readonly/>
+                    <input type="hidden" ng-init="$(this).rating()" value="{{review.rating}}" data-readonly/>
                 </div>
                 <p class="text-muted">{{review.description}}<small> - {{review.owner}}</small></p>
             </div>
