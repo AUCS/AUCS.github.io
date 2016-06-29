@@ -4,13 +4,19 @@
             "cheese": "Blue",
             "owner": "Brent",
             "rating": 4,
-            "description": ""
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
         },
         {
-            "cheese": "Red",
+            "cheese": "Camembert",
             "owner": "Brent2",
             "rating": 3,
-            "description": ""
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+        },
+        {
+            "cheese": "Haloumi",
+            "owner": "Brent3",
+            "rating": 4.5,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
         }
     ]
 }

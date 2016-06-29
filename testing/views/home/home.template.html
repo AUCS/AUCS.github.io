@@ -18,26 +18,16 @@
             </div>
         </div>
         <div class="row text-center">
-            <div class="col-md-4" ng-repeat="Review in $ctrl.LatestReviews">
+            <div class="col-md-4" ng-repeat="review in $ctrl.LatestReviews">
                 <span class="fa-stack fa-4x">
                     <i class="fa fa-circle fa-stack-2x text-primary"></i>
                 </span>
-                <h4 class="service-heading">{{Review.Cheese}}</h4>
+                <h4 class="service-heading">{{review.cheese}}</h4>
                 <h3 class="service-heading">
-                    <span class="glyphicon glyphicon-star{{Review.Rating[0]}}" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star{{Review.Rating[1]}}" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star{{Review.Rating[2]}}" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star{{Review.Rating[3]}}" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star{{Review.Rating[4]}}" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true" ng-repeat="{{review.rating}}"></span>
+                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true" ng-repeat="{{5 - review.rating}}"></span>
                 </h3>
-                <p class="text-muted">{{Review.Description}}</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                </span>
-                <h4 class="service-heading">Haloumi</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <p class="text-muted">{{review.description}}<small> - {{review.owner}}</small></p>
             </div>
         </div>
     </div>
