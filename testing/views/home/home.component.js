@@ -7,10 +7,11 @@ angular.
     templateUrl: 'views/home/home.template.html',
     controller: ['$scope', 'Cache',
       function HomeController($scope, Cache) {
+        var ctrl = this;
         Cache.get({
           cache: 'latest-reviews'
         }, function(data) {
-          this.LatestReviews = data.reviews;
+          ctrl.LatestReviews = data.reviews;
         });
       }]
   });
