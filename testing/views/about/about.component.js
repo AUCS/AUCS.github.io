@@ -1,6 +1,6 @@
 'use strict';
 
-// Register `home` component, along with its associated controller and template
+// Register `about` component, along with its associated controller and template
 angular.
   module('about').
   component('about', {

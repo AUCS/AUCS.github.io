@@ -12,4 +12,7 @@ angular.module('aucsApp', [
   'home',
   'footnote',
   'about',
+  'events',
+  'cheeses',
+  'account',
 ]);
