@@ -33,7 +33,7 @@ angular.
     function(ezfbProvider) {
       ezfbProvider.setInitParams({
         appId: '631831156964129',
-        version: 'v2.6'
+        version: 'v2.7'
       })
     }
   ]);

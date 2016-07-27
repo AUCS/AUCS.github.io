@@ -9,6 +9,7 @@ angular.module('aucsApp', [
   'ezfb',
   'core',
   'navigation',
+  'head',
   'home',
   'footnote',
   'about',
