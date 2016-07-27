@@ -6,7 +6,7 @@ angular.
   component('head', {
     templateUrl: 'views/head/head.template.html',
     controller: [ '$filter',
-      function HeaderController($filter) {
+      function HeadController($filter) {
           this.CurrentYear = $filter('date')(new Date(), 'yyyy');
       }
     ]
