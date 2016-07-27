@@ -7,6 +7,7 @@ angular.
     templateUrl: 'views/home/home.template.html',
     controller: ['$scope', 'Cache',
       function HomeController($scope, Cache) {
+        
         var ctrl = this;
         Cache.get({
           cache: 'latest-reviews'
