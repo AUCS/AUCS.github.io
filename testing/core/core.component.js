@@ -6,6 +6,6 @@ angular.
   component('core', {
     controller: ['$scope', 'Cache',
       function CoreController($scope, Cache) {
-        var x = 6;
+        header = '<header class="header"></header>';
       }]
   });
