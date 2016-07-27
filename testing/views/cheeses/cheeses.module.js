@@ -1,4 +1,4 @@
 'use strict';
 
-// Define the `cheese` module
-angular.module('cheese', ['core']);
+// Define the `cheeses` module
+angular.module('cheeses', ['core']);
