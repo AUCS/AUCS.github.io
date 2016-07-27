@@ -23,7 +23,6 @@ angular.
           } else {
             $scope.templateUrl = 'views/head/head.template-main.html';
           }
-          $log.info("location changing to:" + next); 
         });
       }
     ]
