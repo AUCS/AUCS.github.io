@@ -6,7 +6,7 @@ angular.
   component('about', {
     templateUrl: 'views/about/about.template.html',
     controller: [
-      function AboutController($scope, Cache) {
+      function AboutController() {
         
       }]
   });

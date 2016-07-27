@@ -6,7 +6,7 @@ angular.
   component('account', {
     templateUrl: 'views/account/account.template.html',
     controller: [
-      function AccountController($scope, Cache) {
+      function AccountController() {
         
       }]
   });

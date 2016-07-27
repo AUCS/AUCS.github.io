@@ -4,7 +4,7 @@
 angular.
   module('core').
   component('core', {
-    controller: [
+    controller: ['$scope', 'Cache',
       function CoreController($scope, Cache) {
         var x = 6;
       }]

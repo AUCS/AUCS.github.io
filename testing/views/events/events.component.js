@@ -6,7 +6,7 @@ angular.
   component('events', {
     templateUrl: 'views/events/events.template.html',
     controller: [
-      function EventsController($scope, Cache) {
+      function EventsController() {
         
       }]
   });
