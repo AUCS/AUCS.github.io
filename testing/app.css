@@ -245,6 +245,7 @@ fieldset[disabled] .btn-xl.active {
 }
 .header {
   background-image: url('images/background_header.jpg');
+  padding-bottom: 200px;
 }
 .landing {
   background-image: url('images/background_landing.jpg');
