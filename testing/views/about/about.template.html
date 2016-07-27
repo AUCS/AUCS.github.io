@@ -1,0 +1,23 @@
+<!-- Services Section -->
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Recent Cheeses</h2>
+                <h3 class="section-subheading text-muted">Things our member's are saying</h3>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4" ng-repeat="review in $ctrl.LatestReviews|limitTo:3">
+                <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                </span>
+                <h4 class="service-heading">{{review.cheese}}</h4>
+                <div class="service-heading">
+                    <input type="hidden" class="rating" ng-init="rating()" value="{{review.rating}}" data-readonly/>
+                </div>
+                <p class="text-muted">{{review.description}}<small> - {{review.owner}}</small></p>
+            </div>
+        </div>
+    </div>
+</section>

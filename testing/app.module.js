@@ -11,4 +11,5 @@ angular.module('aucsApp', [
   'navigation',
   'home',
   'footnote',
+  'about',
 ]);
