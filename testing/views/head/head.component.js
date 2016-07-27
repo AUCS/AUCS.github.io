@@ -4,10 +4,13 @@
 angular.
   module('head').
   component('head', {
-    templateUrl: 'views/head/head.template-main.html',
-    controller: [ '$location',
+    templateUrl: [ '$location',
       function HeadController($location) {
-          
+        if ($location.path() === "/home") {
+          return 'views/head/head.template-landing.html';
+        } else {
+          return 'views/head/head.template-main.html';
+        }
       }
     ]
   });
