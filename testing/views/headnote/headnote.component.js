@@ -10,11 +10,11 @@ angular.
         function UpdateHeaderTemplate(event, next, current) {
           var home_string = "/home";
           if (next.substr(-home_string.length) === home_string) {
-            $('header').attr('class', 'landing');
-            $('header > div').show();
+            $('header > div.landing').show();
+            $('header > div.header').hide();
           } else {
-            $('header').attr('class', 'header');
-            $('header > div').hide();
+            $('header > div.landing').hide();
+            $('header > div.header').show();
           }
         }
         UpdateHeaderTemplate(null, $location.absUrl(), null)
