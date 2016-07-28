@@ -2,12 +2,6 @@
 .landing,
 .header {
   transition: all linear 0.5s;
-  opacity: 1;
-}
-
-.landing.ng-hide,
-.header.ng-hide {
-  opacity: 0;
 }
 
 /* Animate view transitions with `ngView` */
