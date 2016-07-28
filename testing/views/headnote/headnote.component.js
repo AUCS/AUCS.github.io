@@ -1,11 +1,11 @@
 'use strict';
 
-// Register `head` component, along with its associated controller and template
+// Register `headnote` component, along with its associated controller and template
 angular.
-  module('head').
-  component('head', {
+  module('headnote').
+  component('headnote', {
     templateUrl: [ '$location',
-      function HeadTemplateInitialiser($location) {
+      function HeadnoteTemplateInitialiser($location) {
         if ($location.path() === "/home") {
           return 'views/head/head.template-landing.html';
         } else {
@@ -14,7 +14,7 @@ angular.
       }
     ],
     controller: [ '$scope', '$location', '$rootScope',
-      function HeadController($scope, $location, $rootScope) {
+      function HeadnoteController($scope, $location, $rootScope) {
         // your controller initialization here ...
         $rootScope.$on("$locationChangeStart", function(event, next, current) {
           var home_string = "/home";
