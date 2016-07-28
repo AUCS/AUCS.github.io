@@ -11,10 +11,10 @@ angular.
           var home_string = "/home";
           if (next.substr(-home_string.length) === home_string) {
             $('header').attr('class', 'landing');
-            $('header > div').attr('visibility', 'initial');
+            $('header > div').show();
           } else {
             $('header').attr('class', 'header');
-            $('header > div').attr('visibility', 'hidden');
+            $('header > div').hide();
           }
         }
         UpdateHeaderTemplate(null, $location.absUrl(), null)
