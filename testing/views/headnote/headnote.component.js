@@ -11,16 +11,12 @@ angular.
           var home_string = "/home";
           if (next.substr(-home_string.length) === home_string) {
             $scope.Home = true;
-            //$('header > div.landing').show('normal');
-            //$('header > div.header').hide('normal');
           } else {
             $scope.Home = false;
-            //$('header > div.landing').hide('normal');
-            //$('header > div.header').show('normal');
           }
         }
-        UpdateHeaderTemplate(null, $location.absUrl(), null)
         $rootScope.$on("$locationChangeStart", UpdateHeaderTemplate);
+        UpdateHeaderTemplate(null, $location.absUrl(), null);
       }
     ]
   });
