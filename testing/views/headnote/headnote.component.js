@@ -7,7 +7,7 @@ angular.
     templateUrl: 'views/headnote/headnote.template.html',
     controller: [ '$scope', '$location', '$rootScope',
       function HeadnoteController($scope, $location, $rootScope) {
-				$scope.LoginLabel = templateUrl;
+				$scope.LoginLabel = $scope.templateUrl;
         // your controller initialization here ...
         $rootScope.$on("$locationChangeStart", function(event, next, current) {
           var home_string = "/home";
