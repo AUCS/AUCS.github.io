@@ -4,24 +4,17 @@
 angular.
   module('headnote').
   component('headnote', {
-    templateUrl: [ '$location',
-      function HeadnoteTemplateInitialiser($location) {
-        if ($location.path() === "/home") {
-          return 'views/headnote/headnote.template-landing.html';
-        } else {
-          return 'views/headnote/headnote.template-main.html';
-        }
-      }
-    ],
+    templateUrl: 'views/headnote/headnote.template.html',
     controller: [ '$scope', '$location', '$rootScope',
       function HeadnoteController($scope, $location, $rootScope) {
+				$scope.LoginLabel = templateUrl;
         // your controller initialization here ...
         $rootScope.$on("$locationChangeStart", function(event, next, current) {
           var home_string = "/home";
           if (next.substr(-home_string.length) === home_string) {
-            $scope.templateUrl = 'views/headnote/headnote.template-landing.html';
+            $scope.LoginLabel = 'views/headnote/headnote.template-landing.html';
           } else {
-            $scope.templateUrl = 'views/headnote/headnote.template-main.html';
+            $scope.LoginLabel = 'views/headnote/headnote.template-main.html';
           }
         });
       }
