@@ -9,17 +9,16 @@ angular.
       function HeadnoteController($scope, $location, $rootScope) {
         function UpdateHeaderTemplate(event, next, current) {
           var home_string = "/home";
-          if (next.substr(-home_string.length) === home_string) {            
-            $('header > div').show()
+          if (next.substr(-home_string.length) === home_string) {
             $('header > div').attr('class', 'landing');
-          } else {            
-            $('header > div').hide()
+            $('header > div').show();
+          } else {
             $('header > div').attr('class', 'header');
+            $('header > div').hide();
           }
         }
         UpdateHeaderTemplate(null, $location.absUrl(), null)
         $rootScope.$on("$locationChangeStart", UpdateHeaderTemplate);
-				$scope.Template = Template;
       }
     ]
   });
