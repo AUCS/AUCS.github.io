@@ -7,13 +7,14 @@ angular.
     templateUrl: 'views/headnote/headnote.template.html',
     controller: [ '$scope', '$location', '$rootScope',
       function HeadnoteController($scope, $location, $rootScope) {
-        var Template = $scope.templateUrl;
         function UpdateHeaderTemplate(event, next, current) {
           var home_string = "/home";
-          if (next.substr(-home_string.length) === home_string) {
-            Template = 'views/headnote/headnote.template-landing.html';
-          } else {
-            Template = 'views/headnote/headnote.template-main.html';
+          if (next.substr(-home_string.length) === home_string) {            
+            $('header > div').show()
+            $('header > div').attr('class', 'landing');
+          } else {            
+            $('header > div').hide()
+            $('header > div').attr('class', 'header');
           }
         }
         UpdateHeaderTemplate(null, $location.absUrl(), null)
