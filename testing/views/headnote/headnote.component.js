@@ -17,7 +17,7 @@ angular.
           }
         }
         UpdateHeaderTemplate(null, $location.absUrl(), null)
-        $rootScope.$on("$locationChangeStart", UpdateHeaderTemplate(event, next, current));
+        $rootScope.$on("$locationChangeStart", UpdateHeaderTemplate);
 				$scope.Template = Template;
       }
     ]
