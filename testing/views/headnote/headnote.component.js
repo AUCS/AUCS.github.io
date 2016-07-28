@@ -7,9 +7,9 @@ angular.
     templateUrl: [ '$location',
       function HeadnoteTemplateInitialiser($location) {
         if ($location.path() === "/home") {
-          return 'views/head/head.template-landing.html';
+          return 'views/headnote/headnote.template-landing.html';
         } else {
-          return 'views/head/head.template-main.html';
+          return 'views/headnote/headnote.template-main.html';
         }
       }
     ],
@@ -19,9 +19,9 @@ angular.
         $rootScope.$on("$locationChangeStart", function(event, next, current) {
           var home_string = "/home";
           if (next.substr(-home_string.length) === home_string) {
-            $scope.templateUrl = 'views/head/head.template-landing.html';
+            $scope.templateUrl = 'views/headnote/headnote.template-landing.html';
           } else {
-            $scope.templateUrl = 'views/head/head.template-main.html';
+            $scope.templateUrl = 'views/headnote/headnote.template-main.html';
           }
         });
       }
