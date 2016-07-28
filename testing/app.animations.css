@@ -2,18 +2,12 @@
 .landing,
 .header {
   transition: all linear 0.5s;
-  line-height: 20px;
   opacity: 1;
-  padding: 10px;
-  border: 1px solid black;
-  background: white;
 }
 
 .landing.ng-hide,
 .header.ng-hide {
-  line-height: 0;
   opacity: 0;
-  padding: 0 10px;
 }
 
 /* Animate view transitions with `ngView` */
