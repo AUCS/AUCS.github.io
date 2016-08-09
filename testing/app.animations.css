@@ -5,6 +5,14 @@
   transition-duration: 1s;
   transition-delay: 0s;
 }
+.animate-switch.ng-leave.ng-leave-active,
+.animate-switch.ng-enter {
+  top:-50px;
+}
+.animate-switch.ng-leave,
+.animate-switch.ng-enter.ng-enter-active {
+  top:0;
+}
 
 /* Animate view transitions with `ngView` */
 .view-container {
