@@ -55,14 +55,18 @@
 	<body>
 
 		<!-- Header -->
+		<header class="view-container">
 			<div ui-view="head" class="view-frame"></div>
+		</header>
 		<!-- /Header -->
 
 		<!-- Navigation -->
 		<Navigation></Navigation>
 
 		<!-- Page -->
+		<div class="view-container">
 			<div ui-view="body" class="view-frame"></div>
+		</div>
 		<!-- /Page -->
 
 		<!-- Footnote -->
