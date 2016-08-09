@@ -7,19 +7,19 @@
 }
 .landing.ng-leave.ng-leave-active,
 .landing.ng-enter {
-  top:-50px;
+  min-height: 200px;
 }
 .landing.ng-leave,
 .landing.ng-enter.ng-enter-active {
-  top:0;
+  min-height: 200px;
 }
 .header.ng-leave.ng-leave-active,
 .header.ng-enter {
-  top:-50px;
+  min-height: 200px;
 }
 .header.ng-leave,
 .header.ng-enter.ng-enter-active {
-  top:0;
+  min-height: 200px;
 }
 
 /* Animate view transitions with `ngView` */
