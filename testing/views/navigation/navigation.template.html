@@ -15,16 +15,16 @@
 		<div class="navbar-collapse" bs-collapse-target>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="hidden">
-					<a ng-href="./#!/home"></a>
+					<a ui-sref="home"></a>
 				</li>
 				<li data-match-route="/cheeses.*">
-					<a ng-href="./#!/cheeses">Cheeses</a>
+					<a ui-sref="cheeses">Cheeses</a>
 				</li>
 				<li data-match-route="/about">
-					<a ng-href="./#!/about">About</a>
+					<a ui-sref="about">About</a>
 				</li>
 				<li data-match-route="/events.*">
-					<a ng-href="./#!/events">Events</a>
+					<a ui-sref="events">Events</a>
 				</li>
 				<li data-match-route="/account.*">
 					<a href ng-click="OpenAccount()">{{LoginLabel}}</a>

@@ -5,10 +5,10 @@ angular.
   config(['$stateProvider', '$urlRouterProvider',
     function config($stateProvider, $urlRouterProvider) {
     // For any unmatched url, redirect to /state1
-    $urlRouterProvider.otherwise("/Home");
+    $urlRouterProvider.otherwise("/home");
     // Now set up the states
     $stateProvider
-      .state('Home', {
+      .state('home', {
         url: "/Home",
         template: '<home></home>'
       })
@@ -35,7 +35,7 @@ angular.
     }
   ]).
 
-  
+
   config(['ezfbProvider',
     function(ezfbProvider) {
       ezfbProvider.setInitParams({
