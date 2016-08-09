@@ -18,8 +18,8 @@
 }
 
 .view-frame.ng-leave {
-  animation: 1s fade-out;
-  z-index: 99;
+  /*animation: 1s fade-out;
+  z-index: 99;*/
 }
 
 @keyframes fade-in {
@@ -31,5 +31,3 @@
   from { opacity: 1; }
   to   { opacity: 0; }
 }
-
-/* Older browsers might need vendor-prefixes for keyframes and animation! */
