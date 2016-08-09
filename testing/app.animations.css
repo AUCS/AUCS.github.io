@@ -2,6 +2,7 @@
 .landing,
 .header {
   transition: all linear;
+  transition-duration: 1s;
   transition-delay: 0s;
 }
 
