@@ -1,26 +1,25 @@
 /* Animate header transitions with `ngHide` */
 .landing.ng-animate {
   transition:all linear 1s;
-  min-height: 600px;
 }
 .header.ng-animate {
   transition:all linear 1s;
 }
 .landing.ng-leave.ng-leave-active,
 .landing.ng-enter {
-  min-height: 200px;
+
 }
 .landing.ng-leave,
 .landing.ng-enter.ng-enter-active {
-  min-height: 200px;
+  height: 0px;
 }
 .header.ng-leave.ng-leave-active,
 .header.ng-enter {
-  min-height: 200px;
+  
 }
 .header.ng-leave,
 .header.ng-enter.ng-enter-active {
-  min-height: 200px;
+  height: 0px;
 }
 
 /* Animate view transitions with `ngView` */
