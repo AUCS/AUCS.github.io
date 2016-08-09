@@ -6,12 +6,14 @@
   transition:all linear 1s;
 }
 .landing.ng-leave.ng-leave-active {
-  height: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .landing.ng-enter.ng-enter-active {
 }
 .header.ng-leave.ng-leave-active {
-  height: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .header.ng-enter.ng-enter-active {
 }
