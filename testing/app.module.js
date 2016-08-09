@@ -2,7 +2,7 @@
 
 // Define the `aucsApp` module
 angular.module('aucsApp', [
-  'ngRoute',
+  'ui.router',
   'ngAnimate',
   'mgcrea.ngStrap',
   'ngResource',
