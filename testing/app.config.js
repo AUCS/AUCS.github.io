@@ -5,32 +5,50 @@ angular.
   config(['$stateProvider', '$urlRouterProvider',
     function config($stateProvider, $urlRouterProvider) {
     // For any unmatched url, redirect to /state1
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise('/home');
     // Now set up the states
     $stateProvider
       .state('home', {
-        url: "/Home",
-        template: '<home></home>'
+        url: '/Home',
+        views: {
+          'head': { templateUrl: 'headnote/landing.template.html' },
+          'body': { template: '<home></home>' }
+        }        
       })
       .state('cheeses', {
-        url: "/cheeses",
-        template: '<cheeses></cheeses>'
+        url: '/cheeses',
+        views: {
+          'head': { templateUrl: 'headnote/header.template.html' },
+          'body': { template: '<cheeses></cheeses>' }
+        }
       })
       .state('cheeseId', {
-        url: "/cheeses/:cheeseId",
-        template: '<cheese-detail></cheese-detail>'
+        url: '/cheeses/:cheeseId',
+        views: {
+          'head': { templateUrl: 'headnote/header.template.html' },
+          'body': { template: '<cheese-detail></cheese-detail>' }
+        }
       })
       .state('about', {
-        url: "/about",
-        template: '<about></about>'
+        url: '/about',
+        views: {
+          'head': { templateUrl: 'headnote/header.template.html' },
+          'body': { template: '<about></about>' }
+        }
       })
       .state('events', {
-        url: "/events",
-        template: '<events></events>'
+        url: '/events',
+        views: {
+          'head': { templateUrl: 'headnote/header.template.html' },
+          'body': { template: '<events></events>' }
+        }
       })
       .state('account', {
-        url: "/account",
-        template: '<account></account>'
+        url: '/account',
+        views: {
+          'head': { templateUrl: 'headnote/header.template.html' },
+          'body': { template: '<account></account>' }
+        }
       });
     }
   ]).

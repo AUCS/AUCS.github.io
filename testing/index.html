@@ -57,7 +57,9 @@
 	<body>
 
 		<!-- Header -->
-		<Headnote></Headnote>
+		<header>
+			<div ui-view="head"></div>
+		</header>
 		<!-- /Header -->
 
 		<!-- Navigation -->
@@ -65,7 +67,7 @@
 
 		<!-- Page -->
 		<div class="view-container">
-			<div ui-view autoscroll="true" class="view-frame"></div>
+			<div ui-view="body" class="view-frame"></div>
 		</div>
 		<!-- /Page -->
 
