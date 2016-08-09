@@ -1,7 +1,8 @@
 /* Animate header transitions with `ngHide` */
 .landing,
 .header {
-  transition: 1s all;
+  transition: all linear;
+  transition-delay: 0s;
 }
 
 /* Animate view transitions with `ngView` */
