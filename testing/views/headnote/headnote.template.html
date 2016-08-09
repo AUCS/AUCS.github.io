@@ -1,5 +1,5 @@
-<header>
-    <div ng-show="Home" class="landing">
+<header ng-switch="Page">
+    <div ng-switch-when="Home" class="landing">
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in">Adelaide University Cheese Society</div>
@@ -8,6 +8,6 @@
             </div>
         </div>
     </div>
-    <div ng-hide="Home" class="header">
+    <div ng-switch-default class="header">
     </div>
 </header>

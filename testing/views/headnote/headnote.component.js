@@ -10,9 +10,9 @@ angular.
         function UpdateHeaderTemplate(event, next, current) {
           var home_string = "/home";
           if (next.substr(-home_string.length) === home_string) {
-            $scope.Home = true;
+            $scope.Page = "Home";
           } else {
-            $scope.Home = false;
+            $scope.Page = "other";
           }
         }
         $rootScope.$on("$locationChangeStart", UpdateHeaderTemplate);
