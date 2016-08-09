@@ -1,6 +1,7 @@
 /* Animate header transitions with `ngHide` */
 .landing.ng-animate {
   transition:all linear 1s;
+  min-height: 600px;
 }
 .header.ng-animate {
   transition:all linear 1s;
