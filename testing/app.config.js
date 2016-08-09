@@ -11,42 +11,42 @@ angular.
       .state('home', {
         url: '/Home',
         views: {
-          'head': { templateUrl: 'headnote/landing.template.html' },
+          'head': { templateUrl: 'views/header/landing.template.html' },
           'body': { template: '<home></home>' }
         }        
       })
       .state('cheeses', {
         url: '/cheeses',
         views: {
-          'head': { templateUrl: 'headnote/header.template.html' },
+          'head': { templateUrl: 'views/header/header.template.html' },
           'body': { template: '<cheeses></cheeses>' }
         }
       })
       .state('cheeseId', {
         url: '/cheeses/:cheeseId',
         views: {
-          'head': { templateUrl: 'headnote/header.template.html' },
+          'head': { templateUrl: 'views/header/header.template.html' },
           'body': { template: '<cheese-detail></cheese-detail>' }
         }
       })
       .state('about', {
         url: '/about',
         views: {
-          'head': { templateUrl: 'headnote/header.template.html' },
+          'head': { templateUrl: 'views/header/header.template.html' },
           'body': { template: '<about></about>' }
         }
       })
       .state('events', {
         url: '/events',
         views: {
-          'head': { templateUrl: 'headnote/header.template.html' },
+          'head': { templateUrl: 'views/header/header.template.html' },
           'body': { template: '<events></events>' }
         }
       })
       .state('account', {
         url: '/account',
         views: {
-          'head': { templateUrl: 'headnote/header.template.html' },
+          'head': { templateUrl: 'views/header/header.template.html' },
           'body': { template: '<account></account>' }
         }
       });
