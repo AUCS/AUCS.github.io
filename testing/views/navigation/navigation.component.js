@@ -5,8 +5,8 @@ angular.
 	module('navigation').
 	component('navigation', {
 		templateUrl: 'views/navigation/navigation.template.html',
-		controller: [ 'ezfb', '$modal', '$scope', '$location',
-			function NavigationController(ezfb, $modal, $scope, $location) {
+		controller: [ 'ezfb', '$modal', '$scope', '$state',
+			function NavigationController(ezfb, $modal, $scope, $state) {
 				$scope.Hidden = true;
 				$scope.ToggleNav = function() {
 					$scope.Hidden = !$scope.Hidden;
@@ -24,7 +24,7 @@ angular.
 					if (User === null || User.error != null) {
 						modalInstance.$promise.then(modalInstance.show);
 					} else {
-						$location.path('/account')
+						$state.go('account')
 					}
 				};
 
