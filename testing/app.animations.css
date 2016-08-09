@@ -1,10 +1,4 @@
 /* Animate header transitions with `ngHide` */
-.landing,
-.header {
-  transition: all linear;
-  transition-duration: 1s;
-  transition-delay: 0s;
-}
 .landing.ng-animate {
   transition:all linear 1s;
 }
