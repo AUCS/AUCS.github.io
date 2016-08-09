@@ -5,21 +5,15 @@
 .header.ng-animate {
   transition:all linear 1s;
 }
-.landing.ng-leave.ng-leave-active,
-.landing.ng-enter {
-
+.landing.ng-leave.ng-leave-active {
+  height: 0px;
 }
-.landing.ng-leave,
 .landing.ng-enter.ng-enter-active {
+}
+.header.ng-leave.ng-leave-active {
   height: 0px;
 }
-.header.ng-leave.ng-leave-active,
-.header.ng-enter {
-  
-}
-.header.ng-leave,
 .header.ng-enter.ng-enter-active {
-  height: 0px;
 }
 
 /* Animate view transitions with `ngView` */
