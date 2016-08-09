@@ -244,11 +244,13 @@ fieldset[disabled] .btn-xl.active {
   }
 }
 .header {
-  background-image: url('images/background_header2.jpg');
+  background-image: url('images/background_header2.jpg'); 
+  background-size:cover;
   padding-bottom: 200px;
 }
 .landing {
-  background-image: url('images/background_landing.jpg');
+  background-image: url('images/background_landing.jpg'); 
+  background-size:cover;
 }
 header {
   background-repeat: no-repeat;
