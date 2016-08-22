@@ -7,14 +7,15 @@ angular.
 		templateUrl: 'views/events/events.template.html',
 		controller: [ 'ezfb', '$scope',
 			function EventsController(ezfb, $scope) {
+				$scope.Error = false;
 				var date = new Date();
 				var since = '?since=' + Math.round(date.getTime()/1000);
 				ezfb.api('/1549671362000387/events' + since, function(res)
 				{
 					if (res.error != null) {
 						$scope.Error = true;
-					} else {
-						$scope.UpcomingEvents = res;
+					} else if (res.data.length > 0) {
+						$scope.UpcomingEvents = res.data;
 					}
 				});
 				date.setDate(date.getDate() - 1);
@@ -23,8 +24,8 @@ angular.
 				{
 					if (res.error != null) {
 						$scope.Error = true;
-					} else {
-						$scope.PastEvents = res;
+					} else if (res.data.length > 0) {
+						$scope.PastEvents = res.data;
 					}
 				});
 			}]
