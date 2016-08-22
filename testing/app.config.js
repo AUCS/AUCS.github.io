@@ -47,7 +47,6 @@ angular.
           'head': { templateUrl: 'views/header/header.template.html' },
           'body': { template: '<event-detail></event-detail>' }
         }
-      })
       .state('account', {
         url: '/account',
         views: {
