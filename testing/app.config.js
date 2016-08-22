@@ -8,7 +8,7 @@ angular.
     // Now set up the states
     $stateProvider
       .state('home', {
-        url: '/Home',
+        url: '/home',
         views: {
           'head': { templateUrl: 'views/header/landing.template.html' },
           'body': { template: '<home></home>' }
@@ -40,6 +40,12 @@ angular.
         views: {
           'head': { templateUrl: 'views/header/header.template.html' },
           'body': { template: '<events></events>' }
+        }
+      .state('eventId', {
+        url: '/events/:eventId',
+        views: {
+          'head': { templateUrl: 'views/header/header.template.html' },
+          'body': { template: '<event-detail></event-detail>' }
         }
       })
       .state('account', {
