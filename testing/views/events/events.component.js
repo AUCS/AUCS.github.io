@@ -5,10 +5,10 @@ angular.
 	module('events').
 	component('events', {
 		templateUrl: 'views/events/events.template.html',
-		controller: [ 'ezfb', '$scope', '$filter',
-			function EventsController(ezfb, $scope, $filter) {
+		controller: [ 'ezfb', '$scope',
+			function EventsController(ezfb, $scope) {
 				var date = new Date();
-				var since = '?since=' + $filter('date')(date, 'yyyy-mm-dd');
+				var since = '?since=' + Math.round(date.getTime()/1000);
 				ezfb.api('/1549671362000387/events' + since, function(res)
 				{
 					if (res.error != null) {
@@ -18,7 +18,7 @@ angular.
 					}
 				});
 				date.setDate(date.getDate() - 1);
-				var until = '?until=' + $filter('date')(date, 'yyyy-mm-dd');
+				var until = '?until=' + Math.round(date.getTime()/1000);
 				ezfb.api('/1549671362000387/events' + until, function(res)
 				{
 					if (res.error != null) {
