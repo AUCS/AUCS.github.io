@@ -7,15 +7,14 @@ angular.
 		templateUrl: 'views/events/events.template.html',
 		controller: [ 'ezfb', '$scope',
 			function EventsController(ezfb, $scope) {
-				ezfb.api('/1549671362000387', function(res)
-				{
-					var x = 1;
-				});
 				ezfb.api('/1549671362000387/events', function(res)
 				{
-					var x = 3;
+					if (res.error != null) {
+						$scope.Error = true;
+					}
+					$scope.UpcomingEvents = res;
 				});
-				$scope.UpcomingEvents = {};
+				
 				$scope.PastEvents = {};
 			}]
 	});
