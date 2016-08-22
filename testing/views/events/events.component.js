@@ -16,6 +16,9 @@ angular.
 					if (res.error != null) {
 						$scope.Error = true;
 					} else if (res.data.length > 0) {
+						$.map(res.data, function(data){
+							return data.name || data.start_time;
+						})
 						$scope.UpcomingEvents = res.data;
 					}
 				});
@@ -27,6 +30,9 @@ angular.
 					if (res.error != null) {
 						$scope.Error = true;
 					} else if (res.data.length > 0) {
+						$.map(res.data, function(data){
+							return data.name || data.start_time;
+						})
 						$scope.PastEvents = res.data;
 					}
 				});
